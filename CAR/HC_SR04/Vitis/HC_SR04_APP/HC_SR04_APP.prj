@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="HC_SR04_APP" location="C:/PXL/devWorks/devWorks2/CAR/HC_SR04/Vitis/HC_SR04_APP" platform="C:/PXL/devWorks/devWorks2/CAR/HC_SR04/Vitis/HC_SR04/export/HC_SR04/HC_SR04.xpfm" platformUID="xilinx:pynq-z2::0.0(custom)" systemProject="HC_SR04_APP_system" sysConfig="HC_SR04" runtime="cpp" cpu="standalone_ps7_cortexa9_0" cpuInstance="ps7_cortexa9_0" os="standalone" mssSignature="9daa502d5efb75776a5409446bcb6702">
+  <configuration name="Debug" id="xilinx.gnu.armv7.exe.debug.598777646">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.armv7.exe.release.1661876034" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="hello_world"/>
+</sdkproject:SdkProject>
