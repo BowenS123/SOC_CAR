@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Sat Mar 29 13:09:42 2025
+# Process ID: 9420
+# Current directory: C:/vivado_pxlsoc/ip_repo/edit_eFPGA_AXI_LM393_driver_v1_0.runs/synth_1
+# Command line: vivado.exe -log eFPGA_AXI_LM393_driver.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source eFPGA_AXI_LM393_driver.tcl
+# Log file: C:/vivado_pxlsoc/ip_repo/edit_eFPGA_AXI_LM393_driver_v1_0.runs/synth_1/eFPGA_AXI_LM393_driver.vds
+# Journal file: C:/vivado_pxlsoc/ip_repo/edit_eFPGA_AXI_LM393_driver_v1_0.runs/synth_1\vivado.jou
+# Running On        :LAPTOP-A6RAF713
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :19045
+# Processor Detail  :AMD Ryzen 7 4700U with Radeon Graphics         
+# CPU Frequency     :1996 MHz
+# CPU Physical cores:8
+# CPU Logical cores :8
+# Host memory       :16505 MB
+# Swap memory       :6548 MB
+# Total Virtual     :23054 MB
+# Available Virtual :4220 MB
+#-----------------------------------------------------------
+source eFPGA_AXI_LM393_driver.tcl -notrace

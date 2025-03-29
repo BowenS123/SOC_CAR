@@ -1,0 +1,30 @@
+13:24:12 **** Incremental Build of configuration Debug for project speedsensor_driver_v2 ****
+make all 
+C:/Xilinx/Vitis/2024.1/gnuwin/bin/make --no-print-directory pre-build
+a9-linaro-pre-build-step
+' '
+C:/Xilinx/Vitis/2024.1/gnuwin/bin/make --no-print-directory main-build
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/vivado_pxlsoc/eval_speedsensor_ip/vitis/eval_speedsensor_ip/export/eval_speedsensor_ip/sw/eval_speedsensor_ip/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/vivado_pxlsoc/eval_speedsensor_ip/vitis/eval_speedsensor_ip/export/eval_speedsensor_ip/sw/eval_speedsensor_ip/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: speedsensor_driver_v2.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LC:/vivado_pxlsoc/eval_speedsensor_ip/vitis/eval_speedsensor_ip/export/eval_speedsensor_ip/sw/eval_speedsensor_ip/standalone_ps7_cortexa9_0/bsplib/lib -o "speedsensor_driver_v2.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: speedsensor_driver_v2.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size speedsensor_driver_v2.elf  |tee "speedsensor_driver_v2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  23193	   1144	  22576	  46913	   b741	speedsensor_driver_v2.elf
+'Finished building: speedsensor_driver_v2.elf.size'
+' '
+
+13:24:13 Build Finished (took 1s.114ms)
+

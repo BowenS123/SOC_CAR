@@ -1,0 +1,10 @@
+set_property PACKAGE_PIN H16 [get_ports clk]
+set_property PACKAGE_PIN Y18 [get_ports signal_in]
+set_property IOSTANDARD LVCMOS33 [get_ports clk]
+set_property IOSTANDARD LVCMOS33 [get_ports signal_in]
+set_property IOSTANDARD LVCMOS33 [get_ports {result[*]}]
+
+set_property IOSTANDARD LVCMOS33 [get_ports clk_in1_0]
+set_property PACKAGE_PIN Y18 [get_ports signal_in_0]
+set_property PACKAGE_PIN H16 [get_ports clk_in1_0]
+set_property IOSTANDARD LVCMOS33 [get_ports signal_in_0]

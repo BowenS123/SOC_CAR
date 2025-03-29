@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<systemproject:SystemProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" xmlns:systemproject="http://www.xilinx.com/systemproject" name="speedsensor_driver_v2_system" platform="C:/vivado_pxlsoc/eval_speedsensor_ip/vitis/eval_speedsensor_ip/export/eval_speedsensor_ip/eval_speedsensor_ip.xpfm" platformUID="xilinx:pynq-z2::0.0(custom)" sysConfig="eval_speedsensor_ip" runtime="cpp" rootFSLocation="" linuxImage="" sysroot="">
+  <configuration name="Debug" id="com.xilinx.sdx.system.managedbuilder.debugConfiguration.1155635823">
+    <configBuildOptions xsi:type="systemproject:SystemOptions">
+      <applications name="speedsensor_driver_v2" domainName="standalone_ps7_cortexa9_0" domainPrettyName="standalone_ps7_cortexa9_0" appBuildConfig="Debug"/>
+      <options xsi:type="sdkproject:SdkOptions" generateSdCard="true"/>
+    </configBuildOptions>
+  </configuration>
+  <configuration name="Release" id="com.xilinx.sdx.system.managedbuilder.releaseConfiguration.855331715">
+    <configBuildOptions xsi:type="systemproject:SystemOptions">
+      <applications name="speedsensor_driver_v2" domainName="standalone_ps7_cortexa9_0" domainPrettyName="standalone_ps7_cortexa9_0" appBuildConfig="Release"/>
+      <options xsi:type="sdkproject:SdkOptions" generateSdCard="true"/>
+    </configBuildOptions>
+  </configuration>
+</systemproject:SystemProject>

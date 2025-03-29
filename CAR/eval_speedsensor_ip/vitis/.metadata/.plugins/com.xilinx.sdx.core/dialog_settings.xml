@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="sdx.custom.platform.repository.locations" value="C:\vivado_pxlsoc\eval_speedsensor_ip\vitis\speedsensor_ip\export\speedsensor_ip;C:\vivado_pxlsoc\eval_speedsensor_ip\vitis\eval_speedsensor_ip\export\eval_speedsensor_ip"/>
+</section>
