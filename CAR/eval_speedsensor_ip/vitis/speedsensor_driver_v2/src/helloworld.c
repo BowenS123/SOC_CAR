@@ -34,8 +34,14 @@ int main()
 
 
     while(1){
+    	//Counts up on each clock pulse which runs on 5MHz resets to 0 on overflow until next pulse
     	uint32_t sensorval = EFPGA_AXI_LM393_DRIVER_mReadReg(XPAR_EFPGA_AXI_LM393_DRIV_0_S00_AXI_BASEADDR,EFPGA_AXI_LM393_DRIVER_S00_AXI_SLV_REG0_OFFSET);
-    	xil_printf("Sensor value: %d \n\r",sensorval);
+    	if(sensorval>100){
+    		//All data under 100 pulses is not valid data to go off.
+    		xil_printf("Sensor value: %d \n\r",sensorval);
+
+    	}
+
     }
     cleanup_platform();
     return 0;
