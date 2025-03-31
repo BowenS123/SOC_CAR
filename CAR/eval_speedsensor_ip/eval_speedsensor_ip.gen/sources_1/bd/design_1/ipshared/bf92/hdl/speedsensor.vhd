@@ -51,8 +51,8 @@ process (clk)
                 result <= counter;  -- Store counter value to output
                 counter <= (others => '0'); -- Reset counter
                 counting <= '1'; -- Resume counting
-            end if;
-            if counting = '1' then
+            --end if;
+            elsif counting = '1' then
                 counter <= std_logic_vector(unsigned(counter) + "1");
                 if counter = X"FFFFFFFF" then  -- Detect overflow
                     counting <= '0'; -- Stop counting on overflow

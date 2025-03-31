@@ -8,12 +8,12 @@
   **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
   **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
   **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-  **** Start of session at: Sat Mar 29 13:13:36 2025
+  **** Start of session at: Mon Mar 31 09:16:18 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source design_1_wrapper.tcl -notrace
-create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 486.184 ; gain = 201.555
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 485.363 ; gain = 201.109
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/vivado_pxlsoc/ip_repo/eFPGA_AXI_LM393_driver_1_0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.1/data/ip'.
@@ -24,33 +24,34 @@ Command: synth_design -top design_1_wrapper -part xc7z020clg400-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+[libprotobuf ERROR C:\protobuf-3.21.12\protobuf\src\google\protobuf\wire_format_lite.cc:618] String field 'HDMetricDBGroup.name' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Device 21-9227] Part: xc7z020clg400-1 does not have CEAM library.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 15040
+INFO: [Synth 8-7075] Helper process launched with PID 9652
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1389.492 ; gain = 446.648
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1390.773 ; gain = 447.938
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:43]
 INFO: [Synth 8-3491] module 'design_1' declared at 'c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:592' bound to instance 'design_1_i' of component 'design_1' [C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:72]
 INFO: [Synth 8-638] synthesizing module 'design_1' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:624]
-INFO: [Synth 8-3491] module 'design_1_clk_wiz_0_0' declared at 'C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-19780-LAPTOP-A6RAF713/realtime/design_1_clk_wiz_0_0_stub.vhdl:6' bound to instance 'clk_wiz_0' of component 'design_1_clk_wiz_0_0' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:861]
-INFO: [Synth 8-638] synthesizing module 'design_1_clk_wiz_0_0' [C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-19780-LAPTOP-A6RAF713/realtime/design_1_clk_wiz_0_0_stub.vhdl:14]
-INFO: [Synth 8-3491] module 'design_1_eFPGA_AXI_LM393_driv_0_0' declared at 'C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-19780-LAPTOP-A6RAF713/realtime/design_1_eFPGA_AXI_LM393_driv_0_0_stub.vhdl:6' bound to instance 'eFPGA_AXI_LM393_driv_0' of component 'design_1_eFPGA_AXI_LM393_driv_0_0' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:866]
-INFO: [Synth 8-638] synthesizing module 'design_1_eFPGA_AXI_LM393_driv_0_0' [C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-19780-LAPTOP-A6RAF713/realtime/design_1_eFPGA_AXI_LM393_driv_0_0_stub.vhdl:35]
-INFO: [Synth 8-3491] module 'design_1_processing_system7_0_0' declared at 'C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-19780-LAPTOP-A6RAF713/realtime/design_1_processing_system7_0_0_stub.vhdl:6' bound to instance 'processing_system7_0' of component 'design_1_processing_system7_0_0' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:892]
-INFO: [Synth 8-638] synthesizing module 'design_1_processing_system7_0_0' [C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-19780-LAPTOP-A6RAF713/realtime/design_1_processing_system7_0_0_stub.vhdl:77]
+INFO: [Synth 8-3491] module 'design_1_clk_wiz_0_0' declared at 'C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-14992-LAPTOP-A6RAF713/realtime/design_1_clk_wiz_0_0_stub.vhdl:6' bound to instance 'clk_wiz_0' of component 'design_1_clk_wiz_0_0' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:861]
+INFO: [Synth 8-638] synthesizing module 'design_1_clk_wiz_0_0' [C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-14992-LAPTOP-A6RAF713/realtime/design_1_clk_wiz_0_0_stub.vhdl:14]
+INFO: [Synth 8-3491] module 'design_1_eFPGA_AXI_LM393_driv_0_0' declared at 'C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-14992-LAPTOP-A6RAF713/realtime/design_1_eFPGA_AXI_LM393_driv_0_0_stub.vhdl:6' bound to instance 'eFPGA_AXI_LM393_driv_0' of component 'design_1_eFPGA_AXI_LM393_driv_0_0' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:866]
+INFO: [Synth 8-638] synthesizing module 'design_1_eFPGA_AXI_LM393_driv_0_0' [C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-14992-LAPTOP-A6RAF713/realtime/design_1_eFPGA_AXI_LM393_driv_0_0_stub.vhdl:35]
+INFO: [Synth 8-3491] module 'design_1_processing_system7_0_0' declared at 'C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-14992-LAPTOP-A6RAF713/realtime/design_1_processing_system7_0_0_stub.vhdl:6' bound to instance 'processing_system7_0' of component 'design_1_processing_system7_0_0' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:892]
+INFO: [Synth 8-638] synthesizing module 'design_1_processing_system7_0_0' [C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-14992-LAPTOP-A6RAF713/realtime/design_1_processing_system7_0_0_stub.vhdl:77]
 INFO: [Synth 8-638] synthesizing module 'design_1_ps7_0_axi_periph_0' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:399]
 INFO: [Synth 8-638] synthesizing module 's00_couplers_imp_UYSKKA' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:81]
-INFO: [Synth 8-3491] module 'design_1_auto_pc_0' declared at 'C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-19780-LAPTOP-A6RAF713/realtime/design_1_auto_pc_0_stub.vhdl:6' bound to instance 'auto_pc' of component 'design_1_auto_pc_0' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:264]
-INFO: [Synth 8-638] synthesizing module 'design_1_auto_pc_0' [C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-19780-LAPTOP-A6RAF713/realtime/design_1_auto_pc_0_stub.vhdl:71]
+INFO: [Synth 8-3491] module 'design_1_auto_pc_0' declared at 'C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-14992-LAPTOP-A6RAF713/realtime/design_1_auto_pc_0_stub.vhdl:6' bound to instance 'auto_pc' of component 'design_1_auto_pc_0' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:264]
+INFO: [Synth 8-638] synthesizing module 'design_1_auto_pc_0' [C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-14992-LAPTOP-A6RAF713/realtime/design_1_auto_pc_0_stub.vhdl:71]
 INFO: [Synth 8-256] done synthesizing module 's00_couplers_imp_UYSKKA' (0#1) [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:81]
 INFO: [Synth 8-256] done synthesizing module 'design_1_ps7_0_axi_periph_0' (0#1) [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:399]
-INFO: [Synth 8-3491] module 'design_1_rst_ps7_0_100M_0' declared at 'C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-19780-LAPTOP-A6RAF713/realtime/design_1_rst_ps7_0_100M_0_stub.vhdl:6' bound to instance 'rst_ps7_0_100M' of component 'design_1_rst_ps7_0_100M_0' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:1026]
-INFO: [Synth 8-638] synthesizing module 'design_1_rst_ps7_0_100M_0' [C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-19780-LAPTOP-A6RAF713/realtime/design_1_rst_ps7_0_100M_0_stub.vhdl:22]
+INFO: [Synth 8-3491] module 'design_1_rst_ps7_0_100M_0' declared at 'C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-14992-LAPTOP-A6RAF713/realtime/design_1_rst_ps7_0_100M_0_stub.vhdl:6' bound to instance 'rst_ps7_0_100M' of component 'design_1_rst_ps7_0_100M_0' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:1026]
+INFO: [Synth 8-638] synthesizing module 'design_1_rst_ps7_0_100M_0' [C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/.Xil/Vivado-14992-LAPTOP-A6RAF713/realtime/design_1_rst_ps7_0_100M_0_stub.vhdl:22]
 INFO: [Synth 8-256] done synthesizing module 'design_1' (0#1) [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/synth/design_1.vhd:624]
 INFO: [Synth 8-256] done synthesizing module 'design_1_wrapper' (0#1) [C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:43]
 WARNING: [Synth 8-7129] Port M_ACLK in module s00_couplers_imp_UYSKKA is either unconnected or has no load
@@ -58,18 +59,18 @@ WARNING: [Synth 8-7129] Port M_ARESETN in module s00_couplers_imp_UYSKKA is eith
 WARNING: [Synth 8-7129] Port ACLK in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ARESETN in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1506.570 ; gain = 563.727
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1507.113 ; gain = 564.277
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1506.570 ; gain = 563.727
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1507.113 ; gain = 564.277
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1506.570 ; gain = 563.727
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1507.113 ; gain = 564.277
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1506.570 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1507.113 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -98,22 +99,22 @@ Parsing XDC File [C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/
 Finished Parsing XDC File [C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1519.145 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1531.934 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1519.145 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1531.934 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1531.934 ; gain = 589.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1531.934 ; gain = 589.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -388,10 +389,10 @@ Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/ps7_0_axi_periph. (con
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/rst_ps7_0_100M. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/clk_wiz_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1531.934 ; gain = 589.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1531.934 ; gain = 589.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -418,25 +419,25 @@ WARNING: [Synth 8-7129] Port ARESETN in module design_1_ps7_0_axi_periph_0 is ei
 WARNING: [Synth 8-7129] Port M00_ACLK in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M00_ARESETN in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1531.934 ; gain = 589.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 1531.934 ; gain = 589.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 1531.934 ; gain = 589.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 1531.934 ; gain = 589.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -454,37 +455,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Finished IO Insertion : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1531.934 ; gain = 589.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1531.934 ; gain = 589.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1531.934 ; gain = 589.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1531.934 ; gain = 589.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1531.934 ; gain = 589.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1531.934 ; gain = 589.098
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -513,16 +514,16 @@ Report Cell Usage:
 |6     |IBUF                                   |     1|
 +------+---------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1531.934 ; gain = 589.098
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 1519.145 ; gain = 563.727
-Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 1519.145 ; gain = 576.301
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:34 . Memory (MB): peak = 1531.934 ; gain = 564.277
+Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:36 . Memory (MB): peak = 1531.934 ; gain = 589.098
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1519.145 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1531.934 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1519.145 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1531.934 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
@@ -530,8 +531,8 @@ Synth Design complete | Checksum: 3cc8066b
 INFO: [Common 17-83] Releasing license: Synthesis
 42 Infos, 15 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1519.145 ; gain = 1009.152
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1519.145 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1531.934 ; gain = 1021.426
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1531.934 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Mar 29 13:14:29 2025...
+INFO: [Common 17-206] Exiting Vivado at Mon Mar 31 09:17:15 2025...

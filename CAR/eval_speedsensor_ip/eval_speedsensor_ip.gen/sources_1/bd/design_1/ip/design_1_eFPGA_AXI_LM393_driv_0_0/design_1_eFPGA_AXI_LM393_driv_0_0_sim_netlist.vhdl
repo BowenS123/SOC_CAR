@@ -2,7 +2,7 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
--- Date        : Sat Mar 29 13:13:06 2025
+-- Date        : Mon Mar 31 09:16:13 2025
 -- Host        : LAPTOP-A6RAF713 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ip/design_1_eFPGA_AXI_LM393_driv_0_0/design_1_eFPGA_AXI_LM393_driv_0_0_sim_netlist.vhdl
@@ -58,7 +58,6 @@ architecture STRUCTURE of design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor is
   signal counter0_carry_n_2 : STD_LOGIC;
   signal counter0_carry_n_3 : STD_LOGIC;
   signal \counter[31]_i_10_n_0\ : STD_LOGIC;
-  signal \counter[31]_i_1_n_0\ : STD_LOGIC;
   signal \counter[31]_i_3_n_0\ : STD_LOGIC;
   signal \counter[31]_i_4_n_0\ : STD_LOGIC;
   signal \counter[31]_i_5_n_0\ : STD_LOGIC;
@@ -70,7 +69,7 @@ architecture STRUCTURE of design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor is
   signal counting_i_1_n_0 : STD_LOGIC;
   signal counting_reg_n_0 : STD_LOGIC;
   signal data0 : STD_LOGIC_VECTOR ( 31 downto 1 );
-  signal \result[31]_i_1_n_0\ : STD_LOGIC;
+  signal result0 : STD_LOGIC;
   signal signal_reg : STD_LOGIC;
   signal \NLW_counter0_carry__6_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_counter0_carry__6_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
@@ -83,39 +82,6 @@ architecture STRUCTURE of design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor is
   attribute ADDER_THRESHOLD of \counter0_carry__4\ : label is 35;
   attribute ADDER_THRESHOLD of \counter0_carry__5\ : label is 35;
   attribute ADDER_THRESHOLD of \counter0_carry__6\ : label is 35;
-  attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \counter[0]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \counter[10]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \counter[11]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \counter[12]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \counter[13]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \counter[14]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \counter[15]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \counter[16]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \counter[17]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \counter[18]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \counter[19]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \counter[1]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \counter[20]_i_1\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \counter[21]_i_1\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \counter[22]_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \counter[23]_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \counter[24]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \counter[25]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \counter[26]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \counter[27]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \counter[28]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \counter[29]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \counter[2]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \counter[30]_i_1\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \counter[31]_i_2\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \counter[3]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \counter[4]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \counter[5]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \counter[6]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \counter[7]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \counter[8]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \counter[9]_i_1\ : label is "soft_lutpair4";
 begin
 counter0_carry: unisim.vcomponents.CARRY4
      port map (
@@ -214,349 +180,368 @@ counter0_carry: unisim.vcomponents.CARRY4
       S(3) => '0',
       S(2 downto 0) => counter(31 downto 29)
     );
-\counter[0]_i_1\: unisim.vcomponents.LUT4
+\counter[0]_i_1\: unisim.vcomponents.LUT1
     generic map(
-      INIT => X"00FE"
+      INIT => X"1"
+    )
+        port map (
+      I0 => counter(0),
+      O => counter_0(0)
+    );
+\counter[10]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFE0000"
     )
         port map (
       I0 => \counter[31]_i_3_n_0\,
       I1 => \counter[31]_i_4_n_0\,
       I2 => \counter[31]_i_5_n_0\,
-      I3 => counter(0),
-      O => counter_0(0)
-    );
-\counter[10]_i_1\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"AAA8"
-    )
-        port map (
-      I0 => data0(10),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(10),
       O => counter_0(10)
     );
-\counter[11]_i_1\: unisim.vcomponents.LUT4
+\counter[11]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(11),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(11),
       O => counter_0(11)
     );
-\counter[12]_i_1\: unisim.vcomponents.LUT4
+\counter[12]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(12),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(12),
       O => counter_0(12)
     );
-\counter[13]_i_1\: unisim.vcomponents.LUT4
+\counter[13]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(13),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(13),
       O => counter_0(13)
     );
-\counter[14]_i_1\: unisim.vcomponents.LUT4
+\counter[14]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(14),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(14),
       O => counter_0(14)
     );
-\counter[15]_i_1\: unisim.vcomponents.LUT4
+\counter[15]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(15),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(15),
       O => counter_0(15)
     );
-\counter[16]_i_1\: unisim.vcomponents.LUT4
+\counter[16]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(16),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(16),
       O => counter_0(16)
     );
-\counter[17]_i_1\: unisim.vcomponents.LUT4
+\counter[17]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(17),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(17),
       O => counter_0(17)
     );
-\counter[18]_i_1\: unisim.vcomponents.LUT4
+\counter[18]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(18),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(18),
       O => counter_0(18)
     );
-\counter[19]_i_1\: unisim.vcomponents.LUT4
+\counter[19]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(19),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(19),
       O => counter_0(19)
     );
-\counter[1]_i_1\: unisim.vcomponents.LUT4
+\counter[1]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(1),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(1),
       O => counter_0(1)
     );
-\counter[20]_i_1\: unisim.vcomponents.LUT4
+\counter[20]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(20),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(20),
       O => counter_0(20)
     );
-\counter[21]_i_1\: unisim.vcomponents.LUT4
+\counter[21]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(21),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(21),
       O => counter_0(21)
     );
-\counter[22]_i_1\: unisim.vcomponents.LUT4
+\counter[22]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(22),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(22),
       O => counter_0(22)
     );
-\counter[23]_i_1\: unisim.vcomponents.LUT4
+\counter[23]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(23),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(23),
       O => counter_0(23)
     );
-\counter[24]_i_1\: unisim.vcomponents.LUT4
+\counter[24]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(24),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(24),
       O => counter_0(24)
     );
-\counter[25]_i_1\: unisim.vcomponents.LUT4
+\counter[25]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(25),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(25),
       O => counter_0(25)
     );
-\counter[26]_i_1\: unisim.vcomponents.LUT4
+\counter[26]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(26),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(26),
       O => counter_0(26)
     );
-\counter[27]_i_1\: unisim.vcomponents.LUT4
+\counter[27]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(27),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(27),
       O => counter_0(27)
     );
-\counter[28]_i_1\: unisim.vcomponents.LUT4
+\counter[28]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(28),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(28),
       O => counter_0(28)
     );
-\counter[29]_i_1\: unisim.vcomponents.LUT4
+\counter[29]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(29),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(29),
       O => counter_0(29)
     );
-\counter[2]_i_1\: unisim.vcomponents.LUT4
+\counter[2]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(2),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(2),
       O => counter_0(2)
     );
-\counter[30]_i_1\: unisim.vcomponents.LUT4
+\counter[30]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(30),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(30),
       O => counter_0(30)
     );
-\counter[31]_i_1\: unisim.vcomponents.LUT3
+\counter[31]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"04"
+      INIT => X"2"
     )
         port map (
-      I0 => signal_reg,
-      I1 => signal_in,
-      I2 => counting_reg_n_0,
-      O => \counter[31]_i_1_n_0\
+      I0 => signal_in,
+      I1 => signal_reg,
+      O => result0
     );
-\counter[31]_i_10\: unisim.vcomponents.LUT6
+\counter[31]_i_10\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"7FFFFFFFFFFFFFFF"
+      INIT => X"7FFF"
     )
         port map (
       I0 => counter(13),
       I1 => counter(12),
-      I2 => counter(11),
-      I3 => counter(10),
-      I4 => counter(0),
-      I5 => counter(1),
+      I2 => counter(15),
+      I3 => counter(14),
       O => \counter[31]_i_10_n_0\
     );
-\counter[31]_i_2\: unisim.vcomponents.LUT4
+\counter[31]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(31),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(31),
       O => counter_0(31)
     );
-\counter[31]_i_3\: unisim.vcomponents.LUT4
+\counter[31]_i_3\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"7FFF"
+      INIT => X"FFFF7FFF"
     )
         port map (
-      I0 => counter(6),
-      I1 => counter(7),
-      I2 => counter(8),
-      I3 => counter(9),
+      I0 => counter(18),
+      I1 => counter(19),
+      I2 => counter(16),
+      I3 => counter(17),
+      I4 => \counter[31]_i_7_n_0\,
       O => \counter[31]_i_3_n_0\
     );
-\counter[31]_i_4\: unisim.vcomponents.LUT6
+\counter[31]_i_4\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFFFFFFFFF7"
+      INIT => X"FFFF7FFF"
     )
         port map (
-      I0 => counter(14),
-      I1 => counter(15),
-      I2 => \counter[31]_i_6_n_0\,
-      I3 => \counter[31]_i_7_n_0\,
+      I0 => counter(26),
+      I1 => counter(27),
+      I2 => counter(24),
+      I3 => counter(25),
       I4 => \counter[31]_i_8_n_0\,
-      I5 => \counter[31]_i_9_n_0\,
       O => \counter[31]_i_4_n_0\
     );
 \counter[31]_i_5\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"BFFFFFFF"
+      INIT => X"FFFF7FFF"
     )
         port map (
-      I0 => \counter[31]_i_10_n_0\,
-      I1 => counter(5),
-      I2 => counter(4),
-      I3 => counter(3),
-      I4 => counter(2),
+      I0 => counter(2),
+      I1 => counter(3),
+      I2 => counter(0),
+      I3 => counter(1),
+      I4 => \counter[31]_i_9_n_0\,
       O => \counter[31]_i_5_n_0\
     );
-\counter[31]_i_6\: unisim.vcomponents.LUT4
+\counter[31]_i_6\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"7FFF"
+      INIT => X"FFFF7FFF"
     )
         port map (
-      I0 => counter(24),
-      I1 => counter(25),
-      I2 => counter(26),
-      I3 => counter(27),
+      I0 => counter(10),
+      I1 => counter(11),
+      I2 => counter(8),
+      I3 => counter(9),
+      I4 => \counter[31]_i_10_n_0\,
       O => \counter[31]_i_6_n_0\
     );
 \counter[31]_i_7\: unisim.vcomponents.LUT4
@@ -564,10 +549,10 @@ counter0_carry: unisim.vcomponents.CARRY4
       INIT => X"7FFF"
     )
         port map (
-      I0 => counter(28),
-      I1 => counter(29),
-      I2 => counter(31),
-      I3 => counter(30),
+      I0 => counter(21),
+      I1 => counter(20),
+      I2 => counter(23),
+      I3 => counter(22),
       O => \counter[31]_i_7_n_0\
     );
 \counter[31]_i_8\: unisim.vcomponents.LUT4
@@ -575,10 +560,10 @@ counter0_carry: unisim.vcomponents.CARRY4
       INIT => X"7FFF"
     )
         port map (
-      I0 => counter(16),
-      I1 => counter(17),
-      I2 => counter(18),
-      I3 => counter(19),
+      I0 => counter(29),
+      I1 => counter(28),
+      I2 => counter(31),
+      I3 => counter(30),
       O => \counter[31]_i_8_n_0\
     );
 \counter[31]_i_9\: unisim.vcomponents.LUT4
@@ -586,87 +571,94 @@ counter0_carry: unisim.vcomponents.CARRY4
       INIT => X"7FFF"
     )
         port map (
-      I0 => counter(20),
-      I1 => counter(21),
-      I2 => counter(22),
-      I3 => counter(23),
+      I0 => counter(5),
+      I1 => counter(4),
+      I2 => counter(7),
+      I3 => counter(6),
       O => \counter[31]_i_9_n_0\
     );
-\counter[3]_i_1\: unisim.vcomponents.LUT4
+\counter[3]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(3),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(3),
       O => counter_0(3)
     );
-\counter[4]_i_1\: unisim.vcomponents.LUT4
+\counter[4]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(4),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(4),
       O => counter_0(4)
     );
-\counter[5]_i_1\: unisim.vcomponents.LUT4
+\counter[5]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(5),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(5),
       O => counter_0(5)
     );
-\counter[6]_i_1\: unisim.vcomponents.LUT4
+\counter[6]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(6),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(6),
       O => counter_0(6)
     );
-\counter[7]_i_1\: unisim.vcomponents.LUT4
+\counter[7]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(7),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(7),
       O => counter_0(7)
     );
-\counter[8]_i_1\: unisim.vcomponents.LUT4
+\counter[8]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(8),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(8),
       O => counter_0(8)
     );
-\counter[9]_i_1\: unisim.vcomponents.LUT4
+\counter[9]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAA8"
+      INIT => X"FFFE0000"
     )
         port map (
-      I0 => data0(9),
-      I1 => \counter[31]_i_3_n_0\,
-      I2 => \counter[31]_i_4_n_0\,
-      I3 => \counter[31]_i_5_n_0\,
+      I0 => \counter[31]_i_3_n_0\,
+      I1 => \counter[31]_i_4_n_0\,
+      I2 => \counter[31]_i_5_n_0\,
+      I3 => \counter[31]_i_6_n_0\,
+      I4 => data0(9),
       O => counter_0(9)
     );
 \counter_reg[0]\: unisim.vcomponents.FDRE
@@ -678,7 +670,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(0),
       Q => counter(0),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[10]\: unisim.vcomponents.FDRE
     generic map(
@@ -689,7 +681,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(10),
       Q => counter(10),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[11]\: unisim.vcomponents.FDRE
     generic map(
@@ -700,7 +692,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(11),
       Q => counter(11),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[12]\: unisim.vcomponents.FDRE
     generic map(
@@ -711,7 +703,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(12),
       Q => counter(12),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[13]\: unisim.vcomponents.FDRE
     generic map(
@@ -722,7 +714,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(13),
       Q => counter(13),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[14]\: unisim.vcomponents.FDRE
     generic map(
@@ -733,7 +725,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(14),
       Q => counter(14),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[15]\: unisim.vcomponents.FDRE
     generic map(
@@ -744,7 +736,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(15),
       Q => counter(15),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[16]\: unisim.vcomponents.FDRE
     generic map(
@@ -755,7 +747,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(16),
       Q => counter(16),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[17]\: unisim.vcomponents.FDRE
     generic map(
@@ -766,7 +758,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(17),
       Q => counter(17),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[18]\: unisim.vcomponents.FDRE
     generic map(
@@ -777,7 +769,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(18),
       Q => counter(18),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[19]\: unisim.vcomponents.FDRE
     generic map(
@@ -788,7 +780,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(19),
       Q => counter(19),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[1]\: unisim.vcomponents.FDRE
     generic map(
@@ -799,7 +791,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(1),
       Q => counter(1),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[20]\: unisim.vcomponents.FDRE
     generic map(
@@ -810,7 +802,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(20),
       Q => counter(20),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[21]\: unisim.vcomponents.FDRE
     generic map(
@@ -821,7 +813,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(21),
       Q => counter(21),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[22]\: unisim.vcomponents.FDRE
     generic map(
@@ -832,7 +824,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(22),
       Q => counter(22),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[23]\: unisim.vcomponents.FDRE
     generic map(
@@ -843,7 +835,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(23),
       Q => counter(23),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[24]\: unisim.vcomponents.FDRE
     generic map(
@@ -854,7 +846,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(24),
       Q => counter(24),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[25]\: unisim.vcomponents.FDRE
     generic map(
@@ -865,7 +857,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(25),
       Q => counter(25),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[26]\: unisim.vcomponents.FDRE
     generic map(
@@ -876,7 +868,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(26),
       Q => counter(26),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[27]\: unisim.vcomponents.FDRE
     generic map(
@@ -887,7 +879,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(27),
       Q => counter(27),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[28]\: unisim.vcomponents.FDRE
     generic map(
@@ -898,7 +890,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(28),
       Q => counter(28),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[29]\: unisim.vcomponents.FDRE
     generic map(
@@ -909,7 +901,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(29),
       Q => counter(29),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[2]\: unisim.vcomponents.FDRE
     generic map(
@@ -920,7 +912,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(2),
       Q => counter(2),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[30]\: unisim.vcomponents.FDRE
     generic map(
@@ -931,7 +923,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(30),
       Q => counter(30),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[31]\: unisim.vcomponents.FDRE
     generic map(
@@ -942,7 +934,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(31),
       Q => counter(31),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[3]\: unisim.vcomponents.FDRE
     generic map(
@@ -953,7 +945,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(3),
       Q => counter(3),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[4]\: unisim.vcomponents.FDRE
     generic map(
@@ -964,7 +956,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(4),
       Q => counter(4),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[5]\: unisim.vcomponents.FDRE
     generic map(
@@ -975,7 +967,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(5),
       Q => counter(5),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[6]\: unisim.vcomponents.FDRE
     generic map(
@@ -986,7 +978,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(6),
       Q => counter(6),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[7]\: unisim.vcomponents.FDRE
     generic map(
@@ -997,7 +989,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(7),
       Q => counter(7),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[8]\: unisim.vcomponents.FDRE
     generic map(
@@ -1008,7 +1000,7 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(8),
       Q => counter(8),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 \counter_reg[9]\: unisim.vcomponents.FDRE
     generic map(
@@ -1019,19 +1011,19 @@ counter0_carry: unisim.vcomponents.CARRY4
       CE => counting_reg_n_0,
       D => counter_0(9),
       Q => counter(9),
-      R => \counter[31]_i_1_n_0\
+      R => result0
     );
 counting_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"F4F4F4F4F4F4F404"
+      INIT => X"FFFFFFFFAAAAAAA8"
     )
         port map (
-      I0 => signal_reg,
-      I1 => signal_in,
-      I2 => counting_reg_n_0,
+      I0 => counting_reg_n_0,
+      I1 => \counter[31]_i_3_n_0\,
+      I2 => \counter[31]_i_4_n_0\,
       I3 => \counter[31]_i_5_n_0\,
-      I4 => \counter[31]_i_4_n_0\,
-      I5 => \counter[31]_i_3_n_0\,
+      I4 => \counter[31]_i_6_n_0\,
+      I5 => result0,
       O => counting_i_1_n_0
     );
 counting_reg: unisim.vcomponents.FDRE
@@ -1045,22 +1037,13 @@ counting_reg: unisim.vcomponents.FDRE
       Q => counting_reg_n_0,
       R => '0'
     );
-\result[31]_i_1\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => signal_in,
-      I1 => signal_reg,
-      O => \result[31]_i_1_n_0\
-    );
 \result_reg[0]\: unisim.vcomponents.FDRE
     generic map(
       INIT => '0'
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(0),
       Q => Q(0),
       R => '0'
@@ -1071,7 +1054,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(10),
       Q => Q(10),
       R => '0'
@@ -1082,7 +1065,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(11),
       Q => Q(11),
       R => '0'
@@ -1093,7 +1076,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(12),
       Q => Q(12),
       R => '0'
@@ -1104,7 +1087,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(13),
       Q => Q(13),
       R => '0'
@@ -1115,7 +1098,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(14),
       Q => Q(14),
       R => '0'
@@ -1126,7 +1109,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(15),
       Q => Q(15),
       R => '0'
@@ -1137,7 +1120,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(16),
       Q => Q(16),
       R => '0'
@@ -1148,7 +1131,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(17),
       Q => Q(17),
       R => '0'
@@ -1159,7 +1142,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(18),
       Q => Q(18),
       R => '0'
@@ -1170,7 +1153,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(19),
       Q => Q(19),
       R => '0'
@@ -1181,7 +1164,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(1),
       Q => Q(1),
       R => '0'
@@ -1192,7 +1175,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(20),
       Q => Q(20),
       R => '0'
@@ -1203,7 +1186,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(21),
       Q => Q(21),
       R => '0'
@@ -1214,7 +1197,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(22),
       Q => Q(22),
       R => '0'
@@ -1225,7 +1208,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(23),
       Q => Q(23),
       R => '0'
@@ -1236,7 +1219,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(24),
       Q => Q(24),
       R => '0'
@@ -1247,7 +1230,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(25),
       Q => Q(25),
       R => '0'
@@ -1258,7 +1241,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(26),
       Q => Q(26),
       R => '0'
@@ -1269,7 +1252,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(27),
       Q => Q(27),
       R => '0'
@@ -1280,7 +1263,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(28),
       Q => Q(28),
       R => '0'
@@ -1291,7 +1274,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(29),
       Q => Q(29),
       R => '0'
@@ -1302,7 +1285,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(2),
       Q => Q(2),
       R => '0'
@@ -1313,7 +1296,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(30),
       Q => Q(30),
       R => '0'
@@ -1324,7 +1307,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(31),
       Q => Q(31),
       R => '0'
@@ -1335,7 +1318,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(3),
       Q => Q(3),
       R => '0'
@@ -1346,7 +1329,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(4),
       Q => Q(4),
       R => '0'
@@ -1357,7 +1340,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(5),
       Q => Q(5),
       R => '0'
@@ -1368,7 +1351,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(6),
       Q => Q(6),
       R => '0'
@@ -1379,7 +1362,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(7),
       Q => Q(7),
       R => '0'
@@ -1390,7 +1373,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(8),
       Q => Q(8),
       R => '0'
@@ -1401,7 +1384,7 @@ counting_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk,
-      CE => \result[31]_i_1_n_0\,
+      CE => result0,
       D => counter(9),
       Q => Q(9),
       R => '0'
@@ -1499,8 +1482,8 @@ architecture STRUCTURE of design_1_eFPGA_AXI_LM393_driv_0_0_eFPGA_AXI_LM393_driv
   attribute FSM_ENCODED_STATES of \FSM_sequential_state_read_reg[0]\ : label is "idle:00,rdata:10,raddr:01";
   attribute FSM_ENCODED_STATES of \FSM_sequential_state_read_reg[1]\ : label is "idle:00,rdata:10,raddr:01";
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \slv_reg3[31]_i_2\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \slv_reg3[31]_i_3\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \slv_reg3[31]_i_2\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \slv_reg3[31]_i_3\ : label is "soft_lutpair0";
 begin
   axi_arready_reg_0 <= \^axi_arready_reg_0\;
   axi_awready_reg_0 <= \^axi_awready_reg_0\;

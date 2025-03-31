@@ -60,9 +60,9 @@ vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../eval_speedsensor_ip
 "../../../bd/design_1/ip/design_1_processing_system7_0_0/sim/design_1_processing_system7_0_0.v" \
 
 vcom -work xil_defaultlib  -93  \
-"../../../bd/design_1/ipshared/1e34/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd" \
-"../../../bd/design_1/ipshared/1e34/hdl/speedsensor.vhd" \
-"../../../bd/design_1/ipshared/1e34/hdl/eFPGA_AXI_LM393_driver.vhd" \
+"../../../bd/design_1/ipshared/bf92/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd" \
+"../../../bd/design_1/ipshared/bf92/hdl/speedsensor.vhd" \
+"../../../bd/design_1/ipshared/bf92/hdl/eFPGA_AXI_LM393_driver.vhd" \
 "../../../bd/design_1/ip/design_1_eFPGA_AXI_LM393_driv_0_0/sim/design_1_eFPGA_AXI_LM393_driv_0_0.vhd" \
 
 vcom -work lib_cdc_v1_0_3  -93  \

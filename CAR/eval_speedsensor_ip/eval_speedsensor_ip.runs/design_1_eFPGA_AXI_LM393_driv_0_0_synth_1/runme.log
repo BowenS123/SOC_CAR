@@ -8,12 +8,27 @@
   **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
   **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
   **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-  **** Start of session at: Sat Mar 29 13:12:13 2025
+  **** Start of session at: Mon Mar 31 09:14:43 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source design_1_eFPGA_AXI_LM393_driv_0_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 486.547 ; gain = 200.977
+
+*** Running vivado
+    with args -log design_1_eFPGA_AXI_LM393_driv_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_eFPGA_AXI_LM393_driv_0_0.tcl
+
+
+
+****** Vivado v2024.1 (64-bit)
+  **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Mon Mar 31 09:15:12 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source design_1_eFPGA_AXI_LM393_driv_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 486.535 ; gain = 201.238
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/vivado_pxlsoc/ip_repo/eFPGA_AXI_LM393_driver_1_0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.1/data/ip'.
@@ -26,27 +41,27 @@ INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Device 21-9227] Part: xc7z020clg400-1 does not have CEAM library.
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 18164
+INFO: [Synth 8-7075] Helper process launched with PID 6776
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1377.527 ; gain = 445.215
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1378.441 ; gain = 447.410
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_1_eFPGA_AXI_LM393_driv_0_0' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ip/design_1_eFPGA_AXI_LM393_driv_0_0/synth/design_1_eFPGA_AXI_LM393_driv_0_0.vhd:84]
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'eFPGA_AXI_LM393_driver' declared at 'c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/1e34/hdl/eFPGA_AXI_LM393_driver.vhd:5' bound to instance 'U0' of component 'eFPGA_AXI_LM393_driver' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ip/design_1_eFPGA_AXI_LM393_driv_0_0/synth/design_1_eFPGA_AXI_LM393_driv_0_0.vhd:154]
-INFO: [Synth 8-638] synthesizing module 'eFPGA_AXI_LM393_driver' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/1e34/hdl/eFPGA_AXI_LM393_driver.vhd:51]
+INFO: [Synth 8-3491] module 'eFPGA_AXI_LM393_driver' declared at 'c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/bf92/hdl/eFPGA_AXI_LM393_driver.vhd:5' bound to instance 'U0' of component 'eFPGA_AXI_LM393_driver' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ip/design_1_eFPGA_AXI_LM393_driv_0_0/synth/design_1_eFPGA_AXI_LM393_driv_0_0.vhd:154]
+INFO: [Synth 8-638] synthesizing module 'eFPGA_AXI_LM393_driver' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/bf92/hdl/eFPGA_AXI_LM393_driver.vhd:51]
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI' declared at 'c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/1e34/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd:5' bound to instance 'eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI_inst' of component 'eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/1e34/hdl/eFPGA_AXI_LM393_driver.vhd:90]
-INFO: [Synth 8-638] synthesizing module 'eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/1e34/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd:89]
-INFO: [Synth 8-226] default block is never used [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/1e34/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd:231]
-INFO: [Synth 8-3491] module 'speedsensor' declared at 'c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/1e34/hdl/speedsensor.vhd:34' bound to instance 'speedsensor_instance' of component 'speedsensor' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/1e34/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd:325]
-INFO: [Synth 8-638] synthesizing module 'speedsensor' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/1e34/hdl/speedsensor.vhd:42]
-INFO: [Synth 8-256] done synthesizing module 'speedsensor' (0#1) [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/1e34/hdl/speedsensor.vhd:42]
-INFO: [Synth 8-256] done synthesizing module 'eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI' (0#1) [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/1e34/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd:89]
-INFO: [Synth 8-256] done synthesizing module 'eFPGA_AXI_LM393_driver' (0#1) [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/1e34/hdl/eFPGA_AXI_LM393_driver.vhd:51]
+INFO: [Synth 8-3491] module 'eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI' declared at 'c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/bf92/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd:5' bound to instance 'eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI_inst' of component 'eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/bf92/hdl/eFPGA_AXI_LM393_driver.vhd:90]
+INFO: [Synth 8-638] synthesizing module 'eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/bf92/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd:89]
+INFO: [Synth 8-226] default block is never used [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/bf92/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd:231]
+INFO: [Synth 8-3491] module 'speedsensor' declared at 'c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/bf92/hdl/speedsensor.vhd:34' bound to instance 'speedsensor_instance' of component 'speedsensor' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/bf92/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd:325]
+INFO: [Synth 8-638] synthesizing module 'speedsensor' [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/bf92/hdl/speedsensor.vhd:42]
+INFO: [Synth 8-256] done synthesizing module 'speedsensor' (0#1) [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/bf92/hdl/speedsensor.vhd:42]
+INFO: [Synth 8-256] done synthesizing module 'eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI' (0#1) [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/bf92/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd:89]
+INFO: [Synth 8-256] done synthesizing module 'eFPGA_AXI_LM393_driver' (0#1) [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/bf92/hdl/eFPGA_AXI_LM393_driver.vhd:51]
 INFO: [Synth 8-256] done synthesizing module 'design_1_eFPGA_AXI_LM393_driv_0_0' (0#1) [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ip/design_1_eFPGA_AXI_LM393_driv_0_0/synth/design_1_eFPGA_AXI_LM393_driv_0_0.vhd:84]
-WARNING: [Synth 8-3848] Net S_result in module/entity eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI does not have driver. [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/1e34/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd:21]
+WARNING: [Synth 8-3848] Net S_result in module/entity eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI does not have driver. [c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ipshared/bf92/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd:21]
 WARNING: [Synth 8-7129] Port S_result[31] in module eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_result[30] in module eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_result[29] in module eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI is either unconnected or has no load
@@ -86,45 +101,45 @@ WARNING: [Synth 8-7129] Port S_AXI_ARPROT[2] in module eFPGA_AXI_LM393_driver_sl
 WARNING: [Synth 8-7129] Port S_AXI_ARPROT[1] in module eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1494.008 ; gain = 561.695
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1493.461 ; gain = 562.430
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1494.008 ; gain = 561.695
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1493.461 ; gain = 562.430
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1494.008 ; gain = 561.695
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1493.461 ; gain = 562.430
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1494.008 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1493.461 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1579.922 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1586.766 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1580.383 ; gain = 0.461
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.056 . Memory (MB): peak = 1587.062 ; gain = 0.297
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1587.062 ; gain = 656.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1587.062 ; gain = 656.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1587.062 ; gain = 656.031
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_write_reg' in module 'eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI'
 INFO: [Synth 8-802] inferred FSM for state register 'state_read_reg' in module 'eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI'
@@ -145,7 +160,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_write_reg' using enc
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_read_reg' using encoding 'sequential' in module 'eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1587.062 ; gain = 656.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -165,7 +180,7 @@ Detailed RTL Component Info :
 	   2 Input    3 Bit        Muxes := 3     
 	   3 Input    2 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 3     
-	   2 Input    1 Bit        Muxes := 4     
+	   2 Input    1 Bit        Muxes := 2     
 	   3 Input    1 Bit        Muxes := 12    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -190,25 +205,25 @@ WARNING: [Synth 8-7129] Port s00_axi_arprot[2] in module design_1_eFPGA_AXI_LM39
 WARNING: [Synth 8-7129] Port s00_axi_arprot[1] in module design_1_eFPGA_AXI_LM393_driv_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s00_axi_arprot[0] in module design_1_eFPGA_AXI_LM393_driv_0_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1587.062 ; gain = 656.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1587.062 ; gain = 656.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1587.062 ; gain = 656.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1587.062 ; gain = 656.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -226,37 +241,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Finished IO Insertion : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1587.062 ; gain = 656.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1587.062 ; gain = 656.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1587.062 ; gain = 656.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1587.062 ; gain = 656.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1587.062 ; gain = 656.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1587.062 ; gain = 656.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -273,41 +288,41 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |CARRY4 |     8|
-|2     |LUT1   |     1|
+|2     |LUT1   |     2|
 |3     |LUT2   |     3|
-|4     |LUT3   |     3|
-|5     |LUT4   |    37|
-|6     |LUT5   |    14|
-|7     |LUT6   |    48|
+|4     |LUT3   |     2|
+|5     |LUT4   |     4|
+|6     |LUT5   |    48|
+|7     |LUT6   |    46|
 |8     |FDRE   |   175|
 |9     |FDSE   |     1|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1587.062 ; gain = 656.031
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 7 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 1580.383 ; gain = 561.695
-Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1580.383 ; gain = 648.070
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:34 . Memory (MB): peak = 1587.062 ; gain = 562.430
+Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1587.062 ; gain = 656.031
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1580.383 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1587.062 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1580.383 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1587.062 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 4d6c1e03
+Synth Design complete | Checksum: 7f799e1d
 INFO: [Common 17-83] Releasing license: Synthesis
 36 Infos, 46 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1580.383 ; gain = 1076.098
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1580.383 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:41 ; elapsed = 00:00:45 . Memory (MB): peak = 1587.062 ; gain = 1083.230
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1587.062 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/design_1_eFPGA_AXI_LM393_driv_0_0_synth_1/design_1_eFPGA_AXI_LM393_driv_0_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_eFPGA_AXI_LM393_driv_0_0, cache-ID = 802c7c15fb608a2d
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_eFPGA_AXI_LM393_driv_0_0, cache-ID = a2c8fd7ba823e354
 INFO: [Coretcl 2-1174] Renamed 3 cell refs.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1580.383 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1587.062 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.runs/design_1_eFPGA_AXI_LM393_driv_0_0_synth_1/design_1_eFPGA_AXI_LM393_driv_0_0.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file design_1_eFPGA_AXI_LM393_driv_0_0_utilization_synth.rpt -pb design_1_eFPGA_AXI_LM393_driv_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Mar 29 13:13:06 2025...
+INFO: [Common 17-206] Exiting Vivado at Mon Mar 31 09:16:13 2025...

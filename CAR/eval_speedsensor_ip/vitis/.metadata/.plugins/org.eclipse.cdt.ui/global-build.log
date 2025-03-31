@@ -1,6 +1,6 @@
 Nothing to build in platform 'eval_speedsensor_ip'
 
-13:24:12 **** Incremental Build of configuration Debug for project speedsensor_driver_v2 ****
+09:26:00 **** Incremental Build of configuration Debug for project speedsensor_driver_v2 ****
 make all 
 C:/Xilinx/Vitis/2024.1/gnuwin/bin/make --no-print-directory pre-build
 a9-linaro-pre-build-step

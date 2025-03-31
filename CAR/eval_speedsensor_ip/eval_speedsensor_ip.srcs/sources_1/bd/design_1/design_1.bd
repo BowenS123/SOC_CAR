@@ -1942,7 +1942,7 @@
       },
       "eFPGA_AXI_LM393_driv_0": {
         "vlnv": "xilinx.com:user:eFPGA_AXI_LM393_driver:1.0",
-        "ip_revision": "13",
+        "ip_revision": "14",
         "xci_name": "design_1_eFPGA_AXI_LM393_driv_0_0",
         "xci_path": "ip\\design_1_eFPGA_AXI_LM393_driv_0_0\\design_1_eFPGA_AXI_LM393_driv_0_0.xci",
         "inst_hier_path": "eFPGA_AXI_LM393_driv_0"

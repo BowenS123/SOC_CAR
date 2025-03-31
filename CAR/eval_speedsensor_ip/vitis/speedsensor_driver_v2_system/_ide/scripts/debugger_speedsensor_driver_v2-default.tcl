@@ -16,7 +16,7 @@ after 3000
 targets -set -filter {jtag_cable_name =~ "Xilinx TUL 1234-tulA" && level==0 && jtag_device_ctx=="jsn-TUL-1234-tulA-23727093-0"}
 fpga -file C:/vivado_pxlsoc/eval_speedsensor_ip/vitis/speedsensor_driver_v2/_ide/bitstream/eval_speedsensor_ip_v2.bit
 targets -set -nocase -filter {name =~"APU*"}
-loadhw -hw C:/vivado_pxlsoc/eval_speedsensor_ip/vitis/eval_speedsensor_ip/export/eval_speedsensor_ip/hw/eval_speedsensor_ip_v2.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+loadhw -hw C:/vivado_pxlsoc/eval_speedsensor_ip/vitis/eval_speedsensor_ip/export/eval_speedsensor_ip/hw/eval_speedsensor_ip_v3.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
 configparams force-mem-access 1
 targets -set -nocase -filter {name =~"APU*"}
 source C:/vivado_pxlsoc/eval_speedsensor_ip/vitis/speedsensor_driver_v2/_ide/psinit/ps7_init.tcl

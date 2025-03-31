@@ -2,7 +2,7 @@
 // Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-// Date        : Sat Mar 29 13:13:06 2025
+// Date        : Mon Mar 31 09:16:13 2025
 // Host        : LAPTOP-A6RAF713 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip.gen/sources_1/bd/design_1/ip/design_1_eFPGA_AXI_LM393_driv_0_0/design_1_eFPGA_AXI_LM393_driv_0_0_sim_netlist.v
@@ -1348,7 +1348,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_eFPGA_AXI_LM393_driver_slave_lite_v1_0_
         .I3(s00_axi_wstrb[3]),
         .I4(s00_axi_wvalid),
         .O(p_0_in[31]));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \slv_reg3[31]_i_2 
@@ -1356,7 +1356,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_eFPGA_AXI_LM393_driver_slave_lite_v1_0_
         .I1(s00_axi_awvalid),
         .I2(\axi_awaddr_reg_n_0_[3] ),
         .O(mem_logic__1[3]));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \slv_reg3[31]_i_3 
@@ -1614,7 +1614,6 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
   wire counter0_carry_n_2;
   wire counter0_carry_n_3;
   wire \counter[31]_i_10_n_0 ;
-  wire \counter[31]_i_1_n_0 ;
   wire \counter[31]_i_3_n_0 ;
   wire \counter[31]_i_4_n_0 ;
   wire \counter[31]_i_5_n_0 ;
@@ -1626,7 +1625,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
   wire counting_i_1_n_0;
   wire counting_reg_n_0;
   wire [31:1]data0;
-  wire \result[31]_i_1_n_0 ;
+  wire result0;
   wire signal_in;
   wire signal_reg;
   wire [3:2]NLW_counter0_carry__6_CO_UNCONNECTED;
@@ -1696,369 +1695,363 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({NLW_counter0_carry__6_O_UNCONNECTED[3],data0[31:29]}),
         .S({1'b0,counter[31:29]}));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'h00FE)) 
+  LUT1 #(
+    .INIT(2'h1)) 
     \counter[0]_i_1 
+       (.I0(counter[0]),
+        .O(counter_0[0]));
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
+    \counter[10]_i_1 
        (.I0(\counter[31]_i_3_n_0 ),
         .I1(\counter[31]_i_4_n_0 ),
         .I2(\counter[31]_i_5_n_0 ),
-        .I3(counter[0]),
-        .O(counter_0[0]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
-    \counter[10]_i_1 
-       (.I0(data0[10]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[10]),
         .O(counter_0[10]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[11]_i_1 
-       (.I0(data0[11]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[11]),
         .O(counter_0[11]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[12]_i_1 
-       (.I0(data0[12]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[12]),
         .O(counter_0[12]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[13]_i_1 
-       (.I0(data0[13]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[13]),
         .O(counter_0[13]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[14]_i_1 
-       (.I0(data0[14]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[14]),
         .O(counter_0[14]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[15]_i_1 
-       (.I0(data0[15]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[15]),
         .O(counter_0[15]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[16]_i_1 
-       (.I0(data0[16]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[16]),
         .O(counter_0[16]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[17]_i_1 
-       (.I0(data0[17]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[17]),
         .O(counter_0[17]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[18]_i_1 
-       (.I0(data0[18]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[18]),
         .O(counter_0[18]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[19]_i_1 
-       (.I0(data0[19]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[19]),
         .O(counter_0[19]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[1]_i_1 
-       (.I0(data0[1]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[1]),
         .O(counter_0[1]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[20]_i_1 
-       (.I0(data0[20]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[20]),
         .O(counter_0[20]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[21]_i_1 
-       (.I0(data0[21]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[21]),
         .O(counter_0[21]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[22]_i_1 
-       (.I0(data0[22]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[22]),
         .O(counter_0[22]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[23]_i_1 
-       (.I0(data0[23]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[23]),
         .O(counter_0[23]));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[24]_i_1 
-       (.I0(data0[24]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[24]),
         .O(counter_0[24]));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[25]_i_1 
-       (.I0(data0[25]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[25]),
         .O(counter_0[25]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[26]_i_1 
-       (.I0(data0[26]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[26]),
         .O(counter_0[26]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[27]_i_1 
-       (.I0(data0[27]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[27]),
         .O(counter_0[27]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[28]_i_1 
-       (.I0(data0[28]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[28]),
         .O(counter_0[28]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[29]_i_1 
-       (.I0(data0[29]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[29]),
         .O(counter_0[29]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[2]_i_1 
-       (.I0(data0[2]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[2]),
         .O(counter_0[2]));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[30]_i_1 
-       (.I0(data0[30]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[30]),
         .O(counter_0[30]));
-  LUT3 #(
-    .INIT(8'h04)) 
+  LUT2 #(
+    .INIT(4'h2)) 
     \counter[31]_i_1 
-       (.I0(signal_reg),
-        .I1(signal_in),
-        .I2(counting_reg_n_0),
-        .O(\counter[31]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h7FFFFFFFFFFFFFFF)) 
+       (.I0(signal_in),
+        .I1(signal_reg),
+        .O(result0));
+  LUT4 #(
+    .INIT(16'h7FFF)) 
     \counter[31]_i_10 
        (.I0(counter[13]),
         .I1(counter[12]),
-        .I2(counter[11]),
-        .I3(counter[10]),
-        .I4(counter[0]),
-        .I5(counter[1]),
+        .I2(counter[15]),
+        .I3(counter[14]),
         .O(\counter[31]_i_10_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[31]_i_2 
-       (.I0(data0[31]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[31]),
         .O(counter_0[31]));
-  LUT4 #(
-    .INIT(16'h7FFF)) 
+  LUT5 #(
+    .INIT(32'hFFFF7FFF)) 
     \counter[31]_i_3 
-       (.I0(counter[6]),
-        .I1(counter[7]),
-        .I2(counter[8]),
-        .I3(counter[9]),
+       (.I0(counter[18]),
+        .I1(counter[19]),
+        .I2(counter[16]),
+        .I3(counter[17]),
+        .I4(\counter[31]_i_7_n_0 ),
         .O(\counter[31]_i_3_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFF7)) 
+  LUT5 #(
+    .INIT(32'hFFFF7FFF)) 
     \counter[31]_i_4 
-       (.I0(counter[14]),
-        .I1(counter[15]),
-        .I2(\counter[31]_i_6_n_0 ),
-        .I3(\counter[31]_i_7_n_0 ),
+       (.I0(counter[26]),
+        .I1(counter[27]),
+        .I2(counter[24]),
+        .I3(counter[25]),
         .I4(\counter[31]_i_8_n_0 ),
-        .I5(\counter[31]_i_9_n_0 ),
         .O(\counter[31]_i_4_n_0 ));
   LUT5 #(
-    .INIT(32'hBFFFFFFF)) 
+    .INIT(32'hFFFF7FFF)) 
     \counter[31]_i_5 
-       (.I0(\counter[31]_i_10_n_0 ),
-        .I1(counter[5]),
-        .I2(counter[4]),
-        .I3(counter[3]),
-        .I4(counter[2]),
+       (.I0(counter[2]),
+        .I1(counter[3]),
+        .I2(counter[0]),
+        .I3(counter[1]),
+        .I4(\counter[31]_i_9_n_0 ),
         .O(\counter[31]_i_5_n_0 ));
-  LUT4 #(
-    .INIT(16'h7FFF)) 
+  LUT5 #(
+    .INIT(32'hFFFF7FFF)) 
     \counter[31]_i_6 
-       (.I0(counter[24]),
-        .I1(counter[25]),
-        .I2(counter[26]),
-        .I3(counter[27]),
+       (.I0(counter[10]),
+        .I1(counter[11]),
+        .I2(counter[8]),
+        .I3(counter[9]),
+        .I4(\counter[31]_i_10_n_0 ),
         .O(\counter[31]_i_6_n_0 ));
   LUT4 #(
     .INIT(16'h7FFF)) 
     \counter[31]_i_7 
-       (.I0(counter[28]),
-        .I1(counter[29]),
-        .I2(counter[31]),
-        .I3(counter[30]),
+       (.I0(counter[21]),
+        .I1(counter[20]),
+        .I2(counter[23]),
+        .I3(counter[22]),
         .O(\counter[31]_i_7_n_0 ));
   LUT4 #(
     .INIT(16'h7FFF)) 
     \counter[31]_i_8 
-       (.I0(counter[16]),
-        .I1(counter[17]),
-        .I2(counter[18]),
-        .I3(counter[19]),
+       (.I0(counter[29]),
+        .I1(counter[28]),
+        .I2(counter[31]),
+        .I3(counter[30]),
         .O(\counter[31]_i_8_n_0 ));
   LUT4 #(
     .INIT(16'h7FFF)) 
     \counter[31]_i_9 
-       (.I0(counter[20]),
-        .I1(counter[21]),
-        .I2(counter[22]),
-        .I3(counter[23]),
+       (.I0(counter[5]),
+        .I1(counter[4]),
+        .I2(counter[7]),
+        .I3(counter[6]),
         .O(\counter[31]_i_9_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[3]_i_1 
-       (.I0(data0[3]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[3]),
         .O(counter_0[3]));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[4]_i_1 
-       (.I0(data0[4]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[4]),
         .O(counter_0[4]));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[5]_i_1 
-       (.I0(data0[5]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[5]),
         .O(counter_0[5]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[6]_i_1 
-       (.I0(data0[6]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[6]),
         .O(counter_0[6]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[7]_i_1 
-       (.I0(data0[7]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[7]),
         .O(counter_0[7]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[8]_i_1 
-       (.I0(data0[8]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[8]),
         .O(counter_0[8]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT4 #(
-    .INIT(16'hAAA8)) 
+  LUT5 #(
+    .INIT(32'hFFFE0000)) 
     \counter[9]_i_1 
-       (.I0(data0[9]),
-        .I1(\counter[31]_i_3_n_0 ),
-        .I2(\counter[31]_i_4_n_0 ),
-        .I3(\counter[31]_i_5_n_0 ),
+       (.I0(\counter[31]_i_3_n_0 ),
+        .I1(\counter[31]_i_4_n_0 ),
+        .I2(\counter[31]_i_5_n_0 ),
+        .I3(\counter[31]_i_6_n_0 ),
+        .I4(data0[9]),
         .O(counter_0[9]));
   FDRE #(
     .INIT(1'b0)) 
@@ -2067,7 +2060,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[0]),
         .Q(counter[0]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[10] 
@@ -2075,7 +2068,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[10]),
         .Q(counter[10]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[11] 
@@ -2083,7 +2076,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[11]),
         .Q(counter[11]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[12] 
@@ -2091,7 +2084,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[12]),
         .Q(counter[12]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[13] 
@@ -2099,7 +2092,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[13]),
         .Q(counter[13]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[14] 
@@ -2107,7 +2100,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[14]),
         .Q(counter[14]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[15] 
@@ -2115,7 +2108,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[15]),
         .Q(counter[15]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[16] 
@@ -2123,7 +2116,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[16]),
         .Q(counter[16]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[17] 
@@ -2131,7 +2124,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[17]),
         .Q(counter[17]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[18] 
@@ -2139,7 +2132,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[18]),
         .Q(counter[18]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[19] 
@@ -2147,7 +2140,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[19]),
         .Q(counter[19]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[1] 
@@ -2155,7 +2148,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[1]),
         .Q(counter[1]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[20] 
@@ -2163,7 +2156,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[20]),
         .Q(counter[20]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[21] 
@@ -2171,7 +2164,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[21]),
         .Q(counter[21]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[22] 
@@ -2179,7 +2172,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[22]),
         .Q(counter[22]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[23] 
@@ -2187,7 +2180,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[23]),
         .Q(counter[23]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[24] 
@@ -2195,7 +2188,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[24]),
         .Q(counter[24]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[25] 
@@ -2203,7 +2196,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[25]),
         .Q(counter[25]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[26] 
@@ -2211,7 +2204,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[26]),
         .Q(counter[26]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[27] 
@@ -2219,7 +2212,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[27]),
         .Q(counter[27]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[28] 
@@ -2227,7 +2220,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[28]),
         .Q(counter[28]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[29] 
@@ -2235,7 +2228,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[29]),
         .Q(counter[29]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[2] 
@@ -2243,7 +2236,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[2]),
         .Q(counter[2]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[30] 
@@ -2251,7 +2244,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[30]),
         .Q(counter[30]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[31] 
@@ -2259,7 +2252,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[31]),
         .Q(counter[31]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[3] 
@@ -2267,7 +2260,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[3]),
         .Q(counter[3]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[4] 
@@ -2275,7 +2268,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[4]),
         .Q(counter[4]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[5] 
@@ -2283,7 +2276,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[5]),
         .Q(counter[5]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[6] 
@@ -2291,7 +2284,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[6]),
         .Q(counter[6]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[7] 
@@ -2299,7 +2292,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[7]),
         .Q(counter[7]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[8] 
@@ -2307,7 +2300,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[8]),
         .Q(counter[8]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   FDRE #(
     .INIT(1'b0)) 
     \counter_reg[9] 
@@ -2315,16 +2308,16 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .CE(counting_reg_n_0),
         .D(counter_0[9]),
         .Q(counter[9]),
-        .R(\counter[31]_i_1_n_0 ));
+        .R(result0));
   LUT6 #(
-    .INIT(64'hF4F4F4F4F4F4F404)) 
+    .INIT(64'hFFFFFFFFAAAAAAA8)) 
     counting_i_1
-       (.I0(signal_reg),
-        .I1(signal_in),
-        .I2(counting_reg_n_0),
+       (.I0(counting_reg_n_0),
+        .I1(\counter[31]_i_3_n_0 ),
+        .I2(\counter[31]_i_4_n_0 ),
         .I3(\counter[31]_i_5_n_0 ),
-        .I4(\counter[31]_i_4_n_0 ),
-        .I5(\counter[31]_i_3_n_0 ),
+        .I4(\counter[31]_i_6_n_0 ),
+        .I5(result0),
         .O(counting_i_1_n_0));
   FDRE #(
     .INIT(1'b1)) 
@@ -2334,17 +2327,11 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
         .D(counting_i_1_n_0),
         .Q(counting_reg_n_0),
         .R(1'b0));
-  LUT2 #(
-    .INIT(4'h2)) 
-    \result[31]_i_1 
-       (.I0(signal_in),
-        .I1(signal_reg),
-        .O(\result[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \result_reg[0] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[0]),
         .Q(Q[0]),
         .R(1'b0));
@@ -2352,7 +2339,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[10] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[10]),
         .Q(Q[10]),
         .R(1'b0));
@@ -2360,7 +2347,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[11] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[11]),
         .Q(Q[11]),
         .R(1'b0));
@@ -2368,7 +2355,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[12] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[12]),
         .Q(Q[12]),
         .R(1'b0));
@@ -2376,7 +2363,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[13] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[13]),
         .Q(Q[13]),
         .R(1'b0));
@@ -2384,7 +2371,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[14] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[14]),
         .Q(Q[14]),
         .R(1'b0));
@@ -2392,7 +2379,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[15] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[15]),
         .Q(Q[15]),
         .R(1'b0));
@@ -2400,7 +2387,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[16] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[16]),
         .Q(Q[16]),
         .R(1'b0));
@@ -2408,7 +2395,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[17] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[17]),
         .Q(Q[17]),
         .R(1'b0));
@@ -2416,7 +2403,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[18] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[18]),
         .Q(Q[18]),
         .R(1'b0));
@@ -2424,7 +2411,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[19] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[19]),
         .Q(Q[19]),
         .R(1'b0));
@@ -2432,7 +2419,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[1] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[1]),
         .Q(Q[1]),
         .R(1'b0));
@@ -2440,7 +2427,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[20] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[20]),
         .Q(Q[20]),
         .R(1'b0));
@@ -2448,7 +2435,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[21] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[21]),
         .Q(Q[21]),
         .R(1'b0));
@@ -2456,7 +2443,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[22] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[22]),
         .Q(Q[22]),
         .R(1'b0));
@@ -2464,7 +2451,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[23] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[23]),
         .Q(Q[23]),
         .R(1'b0));
@@ -2472,7 +2459,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[24] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[24]),
         .Q(Q[24]),
         .R(1'b0));
@@ -2480,7 +2467,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[25] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[25]),
         .Q(Q[25]),
         .R(1'b0));
@@ -2488,7 +2475,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[26] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[26]),
         .Q(Q[26]),
         .R(1'b0));
@@ -2496,7 +2483,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[27] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[27]),
         .Q(Q[27]),
         .R(1'b0));
@@ -2504,7 +2491,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[28] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[28]),
         .Q(Q[28]),
         .R(1'b0));
@@ -2512,7 +2499,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[29] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[29]),
         .Q(Q[29]),
         .R(1'b0));
@@ -2520,7 +2507,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[2] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[2]),
         .Q(Q[2]),
         .R(1'b0));
@@ -2528,7 +2515,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[30] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[30]),
         .Q(Q[30]),
         .R(1'b0));
@@ -2536,7 +2523,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[31] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[31]),
         .Q(Q[31]),
         .R(1'b0));
@@ -2544,7 +2531,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[3] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[3]),
         .Q(Q[3]),
         .R(1'b0));
@@ -2552,7 +2539,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[4] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[4]),
         .Q(Q[4]),
         .R(1'b0));
@@ -2560,7 +2547,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[5] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[5]),
         .Q(Q[5]),
         .R(1'b0));
@@ -2568,7 +2555,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[6] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[6]),
         .Q(Q[6]),
         .R(1'b0));
@@ -2576,7 +2563,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[7] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[7]),
         .Q(Q[7]),
         .R(1'b0));
@@ -2584,7 +2571,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[8] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[8]),
         .Q(Q[8]),
         .R(1'b0));
@@ -2592,7 +2579,7 @@ module design_1_eFPGA_AXI_LM393_driv_0_0_speedsensor
     .INIT(1'b0)) 
     \result_reg[9] 
        (.C(clk),
-        .CE(\result[31]_i_1_n_0 ),
+        .CE(result0),
         .D(counter[9]),
         .Q(Q[9]),
         .R(1'b0));

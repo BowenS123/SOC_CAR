@@ -1,4 +1,4 @@
-13:24:12 **** Incremental Build of configuration Debug for project speedsensor_driver_v2 ****
+09:26:00 **** Incremental Build of configuration Debug for project speedsensor_driver_v2 ****
 make all 
 C:/Xilinx/Vitis/2024.1/gnuwin/bin/make --no-print-directory pre-build
 a9-linaro-pre-build-step
@@ -26,5 +26,5 @@ arm-none-eabi-size speedsensor_driver_v2.elf  |tee "speedsensor_driver_v2.elf.si
 'Finished building: speedsensor_driver_v2.elf.size'
 ' '
 
-13:24:13 Build Finished (took 1s.114ms)
+09:26:02 Build Finished (took 2s.92ms)
 

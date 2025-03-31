@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:user:eFPGA_AXI_LM393_driver:1.0
--- IP Revision: 13
+-- IP Revision: 14
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -120,7 +120,7 @@ ARCHITECTURE design_1_eFPGA_AXI_LM393_driv_0_0_arch OF design_1_eFPGA_AXI_LM393_
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF design_1_eFPGA_AXI_LM393_driv_0_0_arch : ARCHITECTURE IS "design_1_eFPGA_AXI_LM393_driv_0_0,eFPGA_AXI_LM393_driver,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF design_1_eFPGA_AXI_LM393_driv_0_0_arch: ARCHITECTURE IS "design_1_eFPGA_AXI_LM393_driv_0_0,eFPGA_AXI_LM393_driver,{x_ipProduct=Vivado 2024.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=eFPGA_AXI_LM393_driver,x_ipVersion=1.0,x_ipCoreRevision=13,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}";
+  ATTRIBUTE CORE_GENERATION_INFO OF design_1_eFPGA_AXI_LM393_driv_0_0_arch: ARCHITECTURE IS "design_1_eFPGA_AXI_LM393_driv_0_0,eFPGA_AXI_LM393_driver,{x_ipProduct=Vivado 2024.1,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=eFPGA_AXI_LM393_driver,x_ipVersion=1.0,x_ipCoreRevision=14,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF clk: SIGNAL IS "XIL_INTERFACENAME clk, FREQ_HZ 5000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0";

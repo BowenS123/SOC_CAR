@@ -1,7 +1,7 @@
 vhdl xil_defaultlib  \
-"../../../bd/design_1/ipshared/1e34/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd" \
-"../../../bd/design_1/ipshared/1e34/hdl/speedsensor.vhd" \
-"../../../bd/design_1/ipshared/1e34/hdl/eFPGA_AXI_LM393_driver.vhd" \
+"../../../bd/design_1/ipshared/bf92/hdl/eFPGA_AXI_LM393_driver_slave_lite_v1_0_S00_AXI.vhd" \
+"../../../bd/design_1/ipshared/bf92/hdl/speedsensor.vhd" \
+"../../../bd/design_1/ipshared/bf92/hdl/eFPGA_AXI_LM393_driver.vhd" \
 "../../../bd/design_1/ip/design_1_eFPGA_AXI_LM393_driv_0_0/sim/design_1_eFPGA_AXI_LM393_driv_0_0.vhd" \
 "../../../bd/design_1/ip/design_1_rst_ps7_0_100M_0/sim/design_1_rst_ps7_0_100M_0.vhd" \
 "../../../bd/design_1/sim/design_1.vhd" \

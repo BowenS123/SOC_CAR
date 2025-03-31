@@ -20,3 +20,6 @@ domain active {zynq_fsbl}
 domain active {standalone_ps7_cortexa9_0}
 platform generate -quick
 platform generate
+platform active {eval_speedsensor_ip}
+platform config -updatehw {C:/vivado_pxlsoc/eval_speedsensor_ip/eval_speedsensor_ip_v3.xsa}
+platform generate
