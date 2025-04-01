@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="options"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="Options"/>
+			<item value="TIMER_PWM_HIGH_TIME_NS"/>
+			<item value="TIMER_PERIOD_NS"/>
+			<item value="axi_timer_channel"/>
+			<item value="axi_timer"/>
+			<item value="XPAR_SCUGIC_SINGLE_DEVICE_ID"/>
+			<item value="XPAR_SCUGIC"/>
+			<item value=" XPAR_SCUGIC"/>
+			<item value="gpio"/>
+			<item value="gpi"/>
+			<item value="SCU"/>
+			<item value="init"/>
+			<item value="motor"/>
+			<item value="interrupt"/>
+			<item value="int"/>
+		</list>
+		<list key="replacehistory">
+			<item value="TIMER_PWM_HIGH_TIME_US"/>
+			<item value="TIMER_PERIOD_US"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1110"/>
+		<item key="DIALOG_Y_ORIGIN" value="110"/>
+		<item key="DIALOG_WIDTH" value="277"/>
+		<item key="DIALOG_HEIGHT" value="370"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

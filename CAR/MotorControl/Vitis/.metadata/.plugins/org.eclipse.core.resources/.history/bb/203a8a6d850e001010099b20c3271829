@@ -1,0 +1,185 @@
+#include <stdio.h>
+#include "platform.h"
+#include "xil_printf.h"
+#include "xparameters.h"
+#include "xgpio.h"
+#include "xtmrctr.h"
+#include "xscugic.h"
+#include "xil_exception.h"
+#include "sleep.h"
+
+#define TIMER_DEVICE_ID_0 XPAR_AXI_TIMER_0_DEVICE_ID
+#define TIMER_DEVICE_ID_1 XPAR_AXI_TIMER_1_DEVICE_ID
+#define TIMER_INTR XPAR_FABRIC_AXI_TIMER_0_INTERRUPT_INTR
+#define SCUGIC_DEVICE_ID XPAR_SCUGIC_0_DEVICE_ID
+#define TIMER_CHANNEL 1
+#define TIMER_PERIOD_NS 10000
+#define TIMER_PWM_HIGH_TIME_NS 5000
+
+#define GPIO_DEVICE_ID_0 XPAR_AXI_GPIO_0_DEVICE_ID
+#define GPIO_DEVICE_ID_1 XPAR_AXI_GPIO_1_DEVICE_ID
+#define GPIO_CHANNEL 1
+
+#define IN1_PIN 0
+#define IN2_PIN 1
+#define IN3_PIN 0
+#define IN4_PIN 1
+
+XTmrCtr xTmrCtr_Inst0, xTmrCtr_Inst1;
+XGpio Gpio0, Gpio1;
+XScuGic xScuGic_Inst;
+
+void xTmrCtr_Int_Handler(void *CallBackRef, u8 TmrCtrNumber)
+{
+}
+
+u32 xTmr_US_To_RegValue(u32 US)
+{
+    return 0xFFFFFFFF - (50 * US);
+}
+
+int xTmrCtr_Init(XTmrCtr *xTmrCtr_Ptr, u32 DeviceId)
+{
+    int Status, DutyCycle;
+
+    Status = XTmrCtr_Initialize(xTmrCtr_Ptr, DeviceId);
+    if (Status != XST_SUCCESS)
+    {
+        return XST_FAILURE;
+    }
+
+    Status = XTmrCtr_SelfTest(xTmrCtr_Ptr, 1);
+    if (Status != XST_SUCCESS)
+    {
+        return XST_FAILURE;
+    }
+
+    XTmrCtr_SetHandler(xTmrCtr_Ptr, xTmrCtr_Int_Handler, xTmrCtr_Ptr);
+    XTmrCtr_SetResetValue(xTmrCtr_Ptr, TIMER_CHANNEL, xTmr_US_To_RegValue(TIMER_PERIOD_NS));
+    XTmrCtr_SetOptions(xTmrCtr_Ptr, TIMER_CHANNEL, XTC_INT_MODE_OPTION | XTC_AUTO_RELOAD_OPTION);
+
+    DutyCycle = XTmrCtr_PwmConfigure(xTmrCtr_Ptr, TIMER_PERIOD_NS, TIMER_PWM_HIGH_TIME_NS);
+
+    return XST_SUCCESS;
+}
+
+int xScuGic_Init(XScuGic *ScuGic_Ptr, XTmrCtr *xTmrCtr_Ptr)
+{
+    int Status;
+    XScuGic_Config *intc_cfg_ptr;
+    intc_cfg_ptr = XScuGic_LookupConfig(SCUGIC_DEVICE_ID);
+    if (intc_cfg_ptr == NULL)
+    {
+        return XST_FAILURE;
+    }
+    Status = XScuGic_CfgInitialize(ScuGic_Ptr, intc_cfg_ptr, intc_cfg_ptr->CpuBaseAddress);
+    if (Status != XST_SUCCESS)
+    {
+        return XST_FAILURE;
+    }
+    Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT, (Xil_ExceptionHandler)XScuGic_InterruptHandler, ScuGic_Ptr);
+    Xil_ExceptionEnable();
+    XScuGic_Connect(ScuGic_Ptr, TIMER_INTR, (Xil_ExceptionHandler)XTmrCtr_InterruptHandler, (void *)xTmrCtr_Ptr);
+    XScuGic_Enable(ScuGic_Ptr, TIMER_INTR);
+    return XST_SUCCESS;
+}
+
+void SetMotorSpeed(u32 speed)
+{
+    xil_printf("Nieuwe snelheid: %d ns duty cycle\n\r", speed);
+
+    XTmrCtr_PwmDisable(&xTmrCtr_Inst0);
+    XTmrCtr_PwmDisable(&xTmrCtr_Inst1);
+
+    XTmrCtr_PwmConfigure(&xTmrCtr_Inst0, TIMER_PERIOD_NS, speed);
+    XTmrCtr_PwmConfigure(&xTmrCtr_Inst1, TIMER_PERIOD_NS, speed);
+
+    XTmrCtr_PwmEnable(&xTmrCtr_Inst0);
+    XTmrCtr_PwmEnable(&xTmrCtr_Inst1);
+}
+
+
+void MotorMoveForward()
+{
+	SetMotorSpeed(8000);
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (1 << IN1_PIN) | (0 << IN2_PIN));
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (1 << IN3_PIN) | (0 << IN4_PIN));
+    xil_printf("Beide motoren bewegen vooruit\n\r");
+}
+
+void MotorMoveBackward()
+{
+	SetMotorSpeed(6000);
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (0 << IN1_PIN) | (1 << IN2_PIN));
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (0 << IN3_PIN) | (1 << IN4_PIN));
+    xil_printf("Beide motoren bewegen achteruit\n\r");
+}
+
+void MotorTurnLeft()
+{
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (1 << IN1_PIN) | (0 << IN2_PIN));
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (0 << IN3_PIN) | (1 << IN4_PIN));
+    xil_printf("Motor draait naar links\n\r");
+}
+
+void MotorTurnRight()
+{
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (0 << IN1_PIN) | (1 << IN2_PIN));
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (1 << IN3_PIN) | (0 << IN4_PIN));
+    xil_printf("Motor draait naar rechts\n\r");
+}
+
+int main()
+{
+    init_platform();
+
+    if (XGpio_Initialize(&Gpio0, GPIO_DEVICE_ID_0) != XST_SUCCESS || XGpio_Initialize(&Gpio1, GPIO_DEVICE_ID_1) != XST_SUCCESS)
+    {
+        xil_printf("GPIO initialisatie mislukt!\n\r");
+        return XST_FAILURE;
+    }
+
+    if (xTmrCtr_Init(&xTmrCtr_Inst0, TIMER_DEVICE_ID_0) != XST_SUCCESS || xTmrCtr_Init(&xTmrCtr_Inst1, TIMER_DEVICE_ID_1) != XST_SUCCESS)
+    {
+        xil_printf("AXI Timer Init Error!\n\r");
+        return XST_FAILURE;
+    }
+
+    if (xScuGic_Init(&xScuGic_Inst, &xTmrCtr_Inst0) != XST_SUCCESS || xScuGic_Init(&xScuGic_Inst, &xTmrCtr_Inst1) != XST_SUCCESS)
+    {
+        xil_printf("ScuGic Init Error!\n\r");
+        return XST_FAILURE;
+    }
+
+    XTmrCtr_Start(&xTmrCtr_Inst0, TIMER_CHANNEL);
+    XTmrCtr_Start(&xTmrCtr_Inst1, TIMER_CHANNEL);
+
+    XTmrCtr_PwmDisable(&xTmrCtr_Inst0);
+    XTmrCtr_PwmEnable(&xTmrCtr_Inst0);
+
+    XTmrCtr_PwmDisable(&xTmrCtr_Inst1);
+    XTmrCtr_PwmEnable(&xTmrCtr_Inst1);
+
+    XGpio_SetDataDirection(&Gpio0, GPIO_CHANNEL, 0x00);
+    XGpio_SetDataDirection(&Gpio1, GPIO_CHANNEL, 0x00);
+
+    xil_printf("Motorbesturing actief...\n\r");
+
+    while (1)
+    {
+        MotorMoveForward();
+        usleep(5000000);
+
+        MotorMoveBackward();
+        usleep(5000000);
+
+        MotorTurnLeft();
+        usleep(5000000);
+
+        MotorTurnRight();
+        usleep(5000000);
+    }
+
+    cleanup_platform();
+    return 0;
+}
