@@ -1,0 +1,146 @@
+#include "platform.h"
+#include "xgpio.h"
+#include "xtmrctr.h"
+#include "xil_printf.h"
+#include "xstatus.h"
+#include "xparameters.h"
+#include "sleep.h"
+
+XGpio Gpio0, Gpio1;
+XTmrCtr TmrCtr0, TmrCtr1;
+
+#define GPIO_CHANNEL 1
+#define IN1_PIN 0
+#define IN2_PIN 1
+#define IN3_PIN 0
+#define IN4_PIN 1
+
+#define PWM_PERIOD 10000
+#define PWM_HIGH_TIME 8000
+
+// Functie om de PWM te configureren
+void ConfigurePWM(XTmrCtr *TimerInstance, u32 PwmPeriod, u32 PwmHighTime)
+{
+    // Stel de timer in voor PWM (peripherals voor PWM instelling)
+    XTmrCtr_PwmConfigure(TimerInstance, PwmPeriod, PwmHighTime);
+    XTmrCtr_PwmEnable(TimerInstance);
+}
+
+// Functie om de PWM uit te schakelen
+void DisablePWM(XTmrCtr *TimerInstance)
+{
+    XTmrCtr_PwmDisable(TimerInstance);
+}
+
+// Functie om de motoren vooruit te bewegen
+void MotorMoveForward()
+{
+    // Stel PWM in voor de motoren
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_TIME);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_TIME);
+
+    // Zet GPIO voor motoren om vooruit te bewegen
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (1 << IN1_PIN) | (0 << IN2_PIN));  // Motor 1 vooruit
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (1 << IN3_PIN) | (0 << IN4_PIN));  // Motor 2 vooruit
+
+    xil_printf("Beide motoren bewegen vooruit\n\r");
+}
+
+// Functie om de motoren achteruit te bewegen
+void MotorMoveBackward()
+{
+    // Stel PWM in voor de motoren
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_TIME);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_TIME);
+
+    // Zet GPIO voor motoren om achteruit te bewegen
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (0 << IN1_PIN) | (1 << IN2_PIN));  // Motor 1 achteruit
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (0 << IN3_PIN) | (1 << IN4_PIN));  // Motor 2 achteruit
+
+    xil_printf("Beide motoren bewegen achteruit\n\r");
+}
+
+// Functie om de motoren te stoppen
+void MotorStop()
+{
+    // Zet PWM uit voor de motoren
+    DisablePWM(&TmrCtr0);
+    DisablePWM(&TmrCtr1);
+
+    // Zet beide motoren uit
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, 0);
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, 0);
+
+    xil_printf("Motoren gestopt\n\r");
+}
+
+// Functie om de motoren naar links te draaien
+void MotorTurnLeft()
+{
+    // Stel PWM in voor de motoren
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_TIME);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_TIME);
+
+    // Zet GPIO voor motoren om naar links te draaien
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (0 << IN1_PIN) | (1 << IN2_PIN));  // Motor 1 achteruit
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (1 << IN3_PIN) | (0 << IN4_PIN));  // Motor 2 vooruit
+
+    xil_printf("Motoren draaien naar links\n\r");
+}
+
+// Functie om de motoren naar rechts te draaien
+void MotorTurnRight()
+{
+    // Stel PWM in voor de motoren
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_TIME);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_TIME);
+
+    // Zet GPIO voor motoren om naar rechts te draaien
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (1 << IN1_PIN) | (0 << IN2_PIN));  // Motor 1 vooruit
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (0 << IN3_PIN) | (1 << IN4_PIN));  // Motor 2 achteruit
+
+    xil_printf("Motoren draaien naar rechts\n\r");
+}
+
+int main()
+{
+    init_platform();
+
+    // Initialiseer de GPIO voor motorbesturing
+    if (XGpio_Initialize(&Gpio0, XPAR_GPIO_0_DEVICE_ID) != XST_SUCCESS || XGpio_Initialize(&Gpio1, XPAR_GPIO_1_DEVICE_ID) != XST_SUCCESS)
+    {
+        xil_printf("GPIO initialisatie mislukt!\n\r");
+        return XST_FAILURE;
+    }
+
+    // Initialiseer de timers voor PWM
+    XTmrCtr_Config *TmrCtrConfig0 = XTmrCtr_LookupConfig(XPAR_AXI_TIMER_0_DEVICE_ID);
+    XTmrCtr_CfgInitialize(&TmrCtr0, TmrCtrConfig0, TmrCtrConfig0->BaseAddress);
+
+    XTmrCtr_Config *TmrCtrConfig1 = XTmrCtr_LookupConfig(XPAR_AXI_TIMER_1_DEVICE_ID);
+    XTmrCtr_CfgInitialize(&TmrCtr1, TmrCtrConfig1, TmrCtrConfig1->BaseAddress);
+
+    // Zet de data richting van de GPIO-pinnen
+    XGpio_SetDataDirection(&Gpio0, GPIO_CHANNEL, 0x00);
+    XGpio_SetDataDirection(&Gpio1, GPIO_CHANNEL, 0x00);
+
+    xil_printf("Motorbesturing actief\n\r");
+
+    while (1)
+    {
+        MotorMoveForward();
+        usleep(5000000);  // Wacht 5 seconden
+
+        MotorMoveBackward();
+        usleep(5000000);  // Wacht 5 seconden
+
+        MotorTurnLeft();
+        usleep(5000000);  // Wacht 5 seconden
+
+        MotorTurnRight();
+        usleep(5000000);  // Wacht 5 seconden
+    }
+
+    cleanup_platform();
+    return 0;
+}

@@ -1,0 +1,39 @@
+#-----------------------------------------------------------
+# Vivado v2024.1.2 (64-bit)
+# SW Build 5164865 on Thu Sep  5 14:37:11 MDT 2024
+# IP Build 5164407 on Fri Sep  6 08:18:11 MDT 2024
+# SharedData Build 5164864 on Thu Sep 05 13:09:09 MDT 2024
+# Start of session at: Sun Apr 27 13:58:52 2025
+# Process ID: 20080
+# Current directory: C:/PXL/devWorks/devWorks2/CAR/MotorcontrolSpeedsensor/MotorcontrolSpeedsensor.runs/design_1_axi_timer_0_0_synth_1
+# Command line: vivado.exe -log design_1_axi_timer_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_axi_timer_0_0.tcl
+# Log file: C:/PXL/devWorks/devWorks2/CAR/MotorcontrolSpeedsensor/MotorcontrolSpeedsensor.runs/design_1_axi_timer_0_0_synth_1/design_1_axi_timer_0_0.vds
+# Journal file: C:/PXL/devWorks/devWorks2/CAR/MotorcontrolSpeedsensor/MotorcontrolSpeedsensor.runs/design_1_axi_timer_0_0_synth_1\vivado.jou
+# Running On        :Bowen-Laptop
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26100
+# Processor Detail  :Snapdragon(R) X Plus - X1P42100 - Qualcomm(R) Oryon(TM) CPU
+# CPU Frequency     :2976 MHz
+# CPU Physical cores:8
+# CPU Logical cores :8
+# Host memory       :16759 MB
+# Swap memory       :11761 MB
+# Total Virtual     :28521 MB
+# Available Virtual :5792 MB
+#-----------------------------------------------------------
+source design_1_axi_timer_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 524.438 ; gain = 127.680
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/PXL/devWorks/devWorks2/CAR/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.1/data/ip'.
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is c:/PXL/devWorks/devWorks2/CAR/MotorcontrolSpeedsensor/MotorcontrolSpeedsensor.cache/ip 
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: design_1_axi_timer_0_0
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 06783979b5ebcc12 to dir: C:/PXL/devWorks/devWorks2/CAR/MotorcontrolSpeedsensor/MotorcontrolSpeedsensor.runs/design_1_axi_timer_0_0_synth_1
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/PXL/devWorks/devWorks2/CAR/MotorcontrolSpeedsensor/MotorcontrolSpeedsensor.cache/ip/2024.1.2/0/6/06783979b5ebcc12/design_1_axi_timer_0_1.dcp to C:/PXL/devWorks/devWorks2/CAR/MotorcontrolSpeedsensor/MotorcontrolSpeedsensor.runs/design_1_axi_timer_0_0_synth_1/design_1_axi_timer_0_0.dcp.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/PXL/devWorks/devWorks2/CAR/MotorcontrolSpeedsensor/MotorcontrolSpeedsensor.cache/ip/2024.1.2/0/6/06783979b5ebcc12/design_1_axi_timer_0_1_sim_netlist.v to C:/PXL/devWorks/devWorks2/CAR/MotorcontrolSpeedsensor/MotorcontrolSpeedsensor.runs/design_1_axi_timer_0_0_synth_1/design_1_axi_timer_0_0_sim_netlist.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/PXL/devWorks/devWorks2/CAR/MotorcontrolSpeedsensor/MotorcontrolSpeedsensor.cache/ip/2024.1.2/0/6/06783979b5ebcc12/design_1_axi_timer_0_1_sim_netlist.vhdl to C:/PXL/devWorks/devWorks2/CAR/MotorcontrolSpeedsensor/MotorcontrolSpeedsensor.runs/design_1_axi_timer_0_0_synth_1/design_1_axi_timer_0_0_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/PXL/devWorks/devWorks2/CAR/MotorcontrolSpeedsensor/MotorcontrolSpeedsensor.cache/ip/2024.1.2/0/6/06783979b5ebcc12/design_1_axi_timer_0_1_stub.v to C:/PXL/devWorks/devWorks2/CAR/MotorcontrolSpeedsensor/MotorcontrolSpeedsensor.runs/design_1_axi_timer_0_0_synth_1/design_1_axi_timer_0_0_stub.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file c:/PXL/devWorks/devWorks2/CAR/MotorcontrolSpeedsensor/MotorcontrolSpeedsensor.cache/ip/2024.1.2/0/6/06783979b5ebcc12/design_1_axi_timer_0_1_stub.vhdl to C:/PXL/devWorks/devWorks2/CAR/MotorcontrolSpeedsensor/MotorcontrolSpeedsensor.runs/design_1_axi_timer_0_0_synth_1/design_1_axi_timer_0_0_stub.vhdl.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP design_1_axi_timer_0_0, cache-ID = 06783979b5ebcc12.
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 27 13:59:07 2025...
