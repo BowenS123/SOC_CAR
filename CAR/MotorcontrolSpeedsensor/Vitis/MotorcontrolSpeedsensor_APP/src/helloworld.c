@@ -18,7 +18,12 @@ XTmrCtr TmrCtr0, TmrCtr1;
 #define IN4_PIN 1
 
 #define PWM_PERIOD 10000
-#define PWM_HIGH_TIME 8000
+#define PWM_HIGH_FAST 9500
+#define PWM_HIGH_MEDIUM 8500
+#define PWM_HIGH_SLOW 7500
+
+#define WHEEL_HOLES 20
+#define INTERVAL_SECONDS 5
 
 // Functie om de PWM te configureren
 void ConfigurePWM(XTmrCtr *TimerInstance, u32 PwmPeriod, u32 PwmHighTime)
@@ -38,8 +43,8 @@ void DisablePWM(XTmrCtr *TimerInstance)
 void MotorMoveForward()
 {
     // Stel PWM in voor de motoren
-    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_TIME);
-    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_TIME);
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_FAST);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_FAST);
 
     // Zet GPIO voor motoren om vooruit te bewegen
     XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (1 << IN1_PIN) | (0 << IN2_PIN));  // Motor 1 vooruit
@@ -52,8 +57,8 @@ void MotorMoveForward()
 void MotorMoveBackward()
 {
     // Stel PWM in voor de motoren
-    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_TIME);
-    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_TIME);
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_SLOW);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_SLOW);
 
     // Zet GPIO voor motoren om achteruit te bewegen
     XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (0 << IN1_PIN) | (1 << IN2_PIN));  // Motor 1 achteruit
@@ -80,8 +85,8 @@ void MotorStop()
 void MotorTurnLeft()
 {
     // Stel PWM in voor de motoren
-    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_TIME);
-    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_TIME);
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_MEDIUM);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_SLOW);
 
     // Zet GPIO voor motoren om naar links te draaien
     XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (0 << IN1_PIN) | (1 << IN2_PIN));  // Motor 1 achteruit
@@ -94,8 +99,8 @@ void MotorTurnLeft()
 void MotorTurnRight()
 {
     // Stel PWM in voor de motoren
-    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_TIME);
-    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_TIME);
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_SLOW);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_MEDIUM);
 
     // Zet GPIO voor motoren om naar rechts te draaien
     XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (1 << IN1_PIN) | (0 << IN2_PIN));  // Motor 1 vooruit
@@ -128,83 +133,106 @@ int main()
 
     xil_printf("Motorbesturing actief\n\r");
 
+    int calc_factor = 60 / INTERVAL_SECONDS;
+    int pulses_per_rev = WHEEL_HOLES * 2;
+
     while (1)
     {
-    	//Counts up on each clock pulse which runs on 5MHz resets to 0 on overflow until next pulse
-    	uint32_t sensorval1 = EFPGA_AXI_LM393_DRIVER_mReadReg(XPAR_EFPGA_AXI_LM393_DRIV_0_S00_AXI_BASEADDR,EFPGA_AXI_LM393_DRIVER_S00_AXI_SLV_REG0_OFFSET);
-    	uint32_t sensorval2 = EFPGA_AXI_LM393_DRIVER_mReadReg(XPAR_EFPGA_AXI_LM393_DRIV_1_S00_AXI_BASEADDR,EFPGA_AXI_LM393_DRIVER_S00_AXI_SLV_REG0_OFFSET);
-
         MotorMoveForward();
-        usleep(5000000);  // Wacht 5 seconden
+        usleep(INTERVAL_SECONDS * 1000000);
         MotorStop();
+       	//Counts up on each clock pulse which runs on 5MHz resets to 0 on overflow until next pulse
+		uint32_t sensorval1 = EFPGA_AXI_LM393_DRIVER_mReadReg(XPAR_EFPGA_AXI_LM393_DRIV_0_S00_AXI_BASEADDR,EFPGA_AXI_LM393_DRIVER_S00_AXI_SLV_REG0_OFFSET);
+		uint32_t sensorval2 = EFPGA_AXI_LM393_DRIVER_mReadReg(XPAR_EFPGA_AXI_LM393_DRIV_1_S00_AXI_BASEADDR,EFPGA_AXI_LM393_DRIVER_S00_AXI_SLV_REG0_OFFSET);
 
     	if(sensorval1>100){
     		//All data under 100 pulses is not valid data to go off.
-    		xil_printf("Sensor1 value: %d \n\r",sensorval1);
+            xil_printf("Sensor1 value: %d \n\r",sensorval1);
+    		int speed1 = (sensorval1 * calc_factor) / pulses_per_rev;
+    		xil_printf("Sensor1 RPM: %d\n\r", speed1);
 
     	}
 
     	if(sensorval2>100){
     		//All data under 100 pulses is not valid data to go off.
-    		xil_printf("Sensor2 value: %d \n\r",sensorval2);
-
+            xil_printf("Sensor2 value: %d \n\r",sensorval2);
+    		int speed2 = (sensorval2 * calc_factor) / pulses_per_rev;
+    		xil_printf("Sensor2 RPM: %d\n\r", speed2);
     	}
 
-        usleep(5000000);  // Wacht 5 seconden
+    	usleep(INTERVAL_SECONDS * 1000000);
 
         MotorMoveBackward();
-        usleep(5000000);  // Wacht 5 seconden
+        usleep(INTERVAL_SECONDS * 1000000);
         MotorStop();
+
+		sensorval1 = EFPGA_AXI_LM393_DRIVER_mReadReg(XPAR_EFPGA_AXI_LM393_DRIV_0_S00_AXI_BASEADDR,EFPGA_AXI_LM393_DRIVER_S00_AXI_SLV_REG0_OFFSET);
+		sensorval2 = EFPGA_AXI_LM393_DRIVER_mReadReg(XPAR_EFPGA_AXI_LM393_DRIV_1_S00_AXI_BASEADDR,EFPGA_AXI_LM393_DRIVER_S00_AXI_SLV_REG0_OFFSET);
 
     	if(sensorval1>100){
     		//All data under 100 pulses is not valid data to go off.
-    		xil_printf("Sensor1 value: %d \n\r",sensorval1);
+            xil_printf("Sensor1 value: %d \n\r",sensorval1);
+    		int speed1 = (sensorval1 * calc_factor) / pulses_per_rev;
+    		xil_printf("Sensor1 RPM: %d\n\r", speed1);
 
     	}
 
     	if(sensorval2>100){
     		//All data under 100 pulses is not valid data to go off.
-    		xil_printf("Sensor2 value: %d \n\r",sensorval2);
-
+            xil_printf("Sensor2 value: %d \n\r",sensorval2);
+    		int speed2 = (sensorval2 * calc_factor) / pulses_per_rev;
+    		xil_printf("Sensor2 RPM: %d\n\r", speed2);
     	}
 
-        usleep(5000000);  // Wacht 5 seconden
+    	usleep(INTERVAL_SECONDS * 1000000);
 
         MotorTurnLeft();
-        usleep(5000000);  // Wacht 5 seconden
+        usleep(INTERVAL_SECONDS * 1000000);
         MotorStop();
+
+		sensorval1 = EFPGA_AXI_LM393_DRIVER_mReadReg(XPAR_EFPGA_AXI_LM393_DRIV_0_S00_AXI_BASEADDR,EFPGA_AXI_LM393_DRIVER_S00_AXI_SLV_REG0_OFFSET);
+		sensorval2 = EFPGA_AXI_LM393_DRIVER_mReadReg(XPAR_EFPGA_AXI_LM393_DRIV_1_S00_AXI_BASEADDR,EFPGA_AXI_LM393_DRIVER_S00_AXI_SLV_REG0_OFFSET);
 
     	if(sensorval1>100){
     		//All data under 100 pulses is not valid data to go off.
-    		xil_printf("Sensor1 value: %d \n\r",sensorval1);
+            xil_printf("Sensor1 value: %d \n\r",sensorval1);
+    		int speed1 = (sensorval1 * calc_factor) / pulses_per_rev;
+    		xil_printf("Sensor1 RPM: %d\n\r", speed1);
 
     	}
 
     	if(sensorval2>100){
     		//All data under 100 pulses is not valid data to go off.
-    		xil_printf("Sensor2 value: %d \n\r",sensorval2);
-
+            xil_printf("Sensor2 value: %d \n\r",sensorval2);
+    		int speed2 = (sensorval2 * calc_factor) / pulses_per_rev;
+    		xil_printf("Sensor2 RPM: %d\n\r", speed2);
     	}
 
-        usleep(5000000);  // Wacht 5 seconden
+    	usleep(INTERVAL_SECONDS * 1000000);
 
         MotorTurnRight();
-        usleep(5000000);  // Wacht 5 seconden
+        usleep(INTERVAL_SECONDS * 1000000);
         MotorStop();
+
+		sensorval1 = EFPGA_AXI_LM393_DRIVER_mReadReg(XPAR_EFPGA_AXI_LM393_DRIV_0_S00_AXI_BASEADDR,EFPGA_AXI_LM393_DRIVER_S00_AXI_SLV_REG0_OFFSET);
+		sensorval2 = EFPGA_AXI_LM393_DRIVER_mReadReg(XPAR_EFPGA_AXI_LM393_DRIV_1_S00_AXI_BASEADDR,EFPGA_AXI_LM393_DRIVER_S00_AXI_SLV_REG0_OFFSET);
 
     	if(sensorval1>100){
     		//All data under 100 pulses is not valid data to go off.
-    		xil_printf("Sensor1 value: %d \n\r",sensorval1);
+            xil_printf("Sensor1 value: %d \n\r",sensorval1);
+    		int speed1 = (sensorval1 * calc_factor) / pulses_per_rev;
+    		xil_printf("Sensor1 RPM: %d\n\r", speed1);
 
     	}
 
     	if(sensorval2>100){
     		//All data under 100 pulses is not valid data to go off.
-    		xil_printf("Sensor2 value: %d \n\r",sensorval2);
-
+            xil_printf("Sensor2 value: %d \n\r",sensorval2);
+    		int speed2 = (sensorval2 * calc_factor) / pulses_per_rev;
+    		xil_printf("Sensor2 RPM: %d\n\r", speed2);
     	}
 
-        usleep(5000000);  // Wacht 5 seconden
+    	usleep(INTERVAL_SECONDS * 1000000);
     }
 
     cleanup_platform();
