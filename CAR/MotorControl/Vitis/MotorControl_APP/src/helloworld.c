@@ -130,14 +130,22 @@ int main()
     {
         MotorMoveForward();
         usleep(5000000);  // Wacht 5 seconden
+        MotorStop();
+        usleep(5000000);  // Wacht 5 seconden
 
         MotorMoveBackward();
+        usleep(5000000);  // Wacht 5 seconden
+        MotorStop();
         usleep(5000000);  // Wacht 5 seconden
 
         MotorTurnLeft();
         usleep(5000000);  // Wacht 5 seconden
+        MotorStop();
+        usleep(5000000);  // Wacht 5 seconden
 
         MotorTurnRight();
+        usleep(5000000);  // Wacht 5 seconden
+        MotorStop();
         usleep(5000000);  // Wacht 5 seconden
     }
 
