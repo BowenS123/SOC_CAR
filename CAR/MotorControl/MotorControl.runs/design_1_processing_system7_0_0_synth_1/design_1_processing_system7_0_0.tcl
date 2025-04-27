@@ -75,7 +75,7 @@ set_property ip_output_repo c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorCont
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xci
+read_ip -quiet C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xci
 set_property used_in_implementation false [get_files -all c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc]
 
 OPTRACE "Adding files" END { }

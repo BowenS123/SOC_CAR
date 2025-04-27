@@ -1,0 +1,111 @@
+#include <stdio.h>
+#include "platform.h"
+#include "xil_printf.h"
+#include "xparameters.h"
+#include "xgpio.h"
+#include "xtmrctr.h"
+#include "xil_exception.h"
+#include "sleep.h"
+
+#define GPIO_DEVICE_ID_0 XPAR_AXI_GPIO_0_DEVICE_ID
+#define GPIO_DEVICE_ID_1 XPAR_AXI_GPIO_1_DEVICE_ID
+#define GPIO_CHANNEL 1
+
+#define IN1_PIN 0
+#define IN2_PIN 1
+#define IN3_PIN 0
+#define IN4_PIN 1
+
+#define TIMER_DEVICE_ID_0 XPAR_AXI_TIMER_0_DEVICE_ID
+#define TIMER_DEVICE_ID_1 XPAR_AXI_TIMER_1_DEVICE_ID
+
+XGpio Gpio0, Gpio1;
+XTmrCtr TmrCtr0, TmrCtr1;
+
+void TimerInitialize(XTmrCtr *TmrCtrInstance, u16 TimerDeviceId) {
+    int Status;
+    Status = XTmrCtr_Initialize(TmrCtrInstance, TimerDeviceId);
+    if (Status != XST_SUCCESS) {
+        xil_printf("Timer initialisatie mislukt!\n\r");
+        return;
+    }
+    XTmrCtr_SetOptions(TmrCtrInstance, 0, XTC_CASCADE_MODE_OPTION | XTC_DOWN_COUNT_OPTION);
+}
+
+void SetMotorSpeed(u32 speed, XTmrCtr *TmrCtrInstance) {
+    // De snelheid wordt vertaald naar een duty cycle
+    u32 period = 10000;  // Periode van de timer
+    u32 dutyCycle = (period * speed) / 100;
+
+    // Stel de timer in met de nieuwe duty cycle
+    XTmrCtr_SetResetValue(TmrCtrInstance, 0, period - dutyCycle); // Stel de reset waarde in
+    XTmrCtr_SetLoadValue(TmrCtrInstance, 0, period - dutyCycle);  // Stel de laadwaarde in
+    XTmrCtr_Start(TmrCtrInstance, 0);  // Start de timer
+}
+
+void MotorMoveForward() {
+    SetMotorSpeed(80, &TmrCtr0);  // Stel de snelheid van de motoren in (bijv. 80% snelheid)
+    SetMotorSpeed(80, &TmrCtr1);
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (1 << IN1_PIN) | (0 << IN2_PIN));
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (1 << IN3_PIN) | (0 << IN4_PIN));
+    xil_printf("Beide motoren bewegen vooruit\n\r");
+}
+
+void MotorMoveBackward() {
+    SetMotorSpeed(60, &TmrCtr0);  // Stel de snelheid van de motoren in (bijv. 60% snelheid)
+    SetMotorSpeed(60, &TmrCtr1);
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (0 << IN1_PIN) | (1 << IN2_PIN));
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (0 << IN3_PIN) | (1 << IN4_PIN));
+    xil_printf("Beide motoren bewegen achteruit\n\r");
+}
+
+void MotorTurnLeft() {
+    SetMotorSpeed(50, &TmrCtr0);  // Stel de snelheid van de motoren in
+    SetMotorSpeed(50, &TmrCtr1);
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (1 << IN1_PIN) | (0 << IN2_PIN));
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (0 << IN3_PIN) | (1 << IN4_PIN));
+    xil_printf("Motor draait naar links\n\r");
+}
+
+void MotorTurnRight() {
+    SetMotorSpeed(50, &TmrCtr0);  // Stel de snelheid van de motoren in
+    SetMotorSpeed(50, &TmrCtr1);
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (0 << IN1_PIN) | (1 << IN2_PIN));
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (1 << IN3_PIN) | (0 << IN4_PIN));
+    xil_printf("Motor draait naar rechts\n\r");
+}
+
+int main() {
+    init_platform();
+
+    if (XGpio_Initialize(&Gpio0, GPIO_DEVICE_ID_0) != XST_SUCCESS || XGpio_Initialize(&Gpio1, GPIO_DEVICE_ID_1) != XST_SUCCESS) {
+        xil_printf("GPIO initialisatie mislukt!\n\r");
+        return XST_FAILURE;
+    }
+
+    XGpio_SetDataDirection(&Gpio0, GPIO_CHANNEL, 0x00);
+    XGpio_SetDataDirection(&Gpio1, GPIO_CHANNEL, 0x00);
+
+    // Initialiseer de timers voor PWM
+    TimerInitialize(&TmrCtr0, TIMER_DEVICE_ID_0);
+    TimerInitialize(&TmrCtr1, TIMER_DEVICE_ID_1);
+
+    xil_printf("Motorbesturing actief...\n\r");
+
+    while (1) {
+        MotorMoveForward();
+        usleep(5000000);
+
+        MotorMoveBackward();
+        usleep(5000000);
+
+        MotorTurnLeft();
+        usleep(5000000);
+
+        MotorTurnRight();
+        usleep(5000000);
+    }
+
+    cleanup_platform();
+    return 0;
+}

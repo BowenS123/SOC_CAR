@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1.2 (win64) Build 5164865 Thu Sep  5 14:37:11 MDT 2024
---Date        : Mon Mar 31 10:16:05 2025
+--Date        : Sun Apr 27 12:34:01 2025
 --Host        : Bowen-Laptop running 64-bit major release  (build 9200)
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -1562,7 +1562,7 @@ entity design_1 is
     pwm0_1 : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=15,numReposBlks=9,numNonXlnxBlks=0,numHierBlks=6,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=4,da_ps7_cnt=1,synth_mode=Hierarchical}";
+  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=14,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=6,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=4,da_ps7_cnt=1,synth_mode=Hierarchical}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of design_1 : entity is "design_1.hwdef";
 end design_1;
@@ -1612,7 +1612,6 @@ architecture STRUCTURE of design_1 is
     M_AXI_GP0_BRESP : in STD_LOGIC_VECTOR ( 1 downto 0 );
     M_AXI_GP0_RRESP : in STD_LOGIC_VECTOR ( 1 downto 0 );
     M_AXI_GP0_RDATA : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    IRQ_F2P : in STD_LOGIC_VECTOR ( 1 downto 0 );
     FCLK_CLK0 : out STD_LOGIC;
     FCLK_RESET0_N : out STD_LOGIC;
     MIO : inout STD_LOGIC_VECTOR ( 53 downto 0 );
@@ -1746,13 +1745,6 @@ architecture STRUCTURE of design_1 is
     gpio_io_o : out STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   end component design_1_axi_gpio_0_1;
-  component design_1_xlconcat_0_0 is
-  port (
-    In0 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    In1 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    dout : out STD_LOGIC_VECTOR ( 1 downto 0 )
-  );
-  end component design_1_xlconcat_0_0;
   component design_1_rst_ps7_0_100M_0 is
   port (
     slowest_sync_clk : in STD_LOGIC;
@@ -1769,9 +1761,7 @@ architecture STRUCTURE of design_1 is
   end component design_1_rst_ps7_0_100M_0;
   signal axi_gpio_0_GPIO_TRI_O : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal axi_gpio_1_GPIO_TRI_O : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal axi_timer_0_interrupt : STD_LOGIC;
   signal axi_timer_0_pwm0 : STD_LOGIC;
-  signal axi_timer_1_interrupt : STD_LOGIC;
   signal axi_timer_1_pwm0 : STD_LOGIC;
   signal processing_system7_0_DDR_ADDR : STD_LOGIC_VECTOR ( 14 downto 0 );
   signal processing_system7_0_DDR_BA : STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -1903,11 +1893,12 @@ architecture STRUCTURE of design_1 is
   signal ps7_0_axi_periph_M03_AXI_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal ps7_0_axi_periph_M03_AXI_WVALID : STD_LOGIC_VECTOR ( 0 to 0 );
   signal rst_ps7_0_100M_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_axi_timer_0_generateout0_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_timer_0_generateout1_UNCONNECTED : STD_LOGIC;
+  signal NLW_axi_timer_0_interrupt_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_timer_1_generateout0_UNCONNECTED : STD_LOGIC;
   signal NLW_axi_timer_1_generateout1_UNCONNECTED : STD_LOGIC;
+  signal NLW_axi_timer_1_interrupt_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_USB0_VBUS_PWRSELECT_UNCONNECTED : STD_LOGIC;
   signal NLW_processing_system7_0_USB0_PORT_INDCTL_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_rst_ps7_0_100M_mb_reset_UNCONNECTED : STD_LOGIC;
@@ -1938,8 +1929,8 @@ architecture STRUCTURE of design_1 is
   attribute X_INTERFACE_INFO of DDR_dq : signal is "xilinx.com:interface:ddrx:1.0 DDR DQ";
   attribute X_INTERFACE_INFO of DDR_dqs_n : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_N";
   attribute X_INTERFACE_INFO of DDR_dqs_p : signal is "xilinx.com:interface:ddrx:1.0 DDR DQS_P";
-  attribute X_INTERFACE_INFO of DIRECTIONS_0_tri_o : signal is "xilinx.com:interface:gpio:1.0 DIRECTIONS_0 ";
-  attribute X_INTERFACE_INFO of DIRECTIONS_1_tri_o : signal is "xilinx.com:interface:gpio:1.0 DIRECTIONS_1 ";
+  attribute X_INTERFACE_INFO of DIRECTIONS_0_tri_o : signal is "xilinx.com:interface:gpio:1.0 DIRECTIONS_0 TRI_O";
+  attribute X_INTERFACE_INFO of DIRECTIONS_1_tri_o : signal is "xilinx.com:interface:gpio:1.0 DIRECTIONS_1 TRI_O";
   attribute X_INTERFACE_INFO of FIXED_IO_mio : signal is "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO MIO";
 begin
   DIRECTIONS_0_tri_o(1 downto 0) <= axi_gpio_0_GPIO_TRI_O(1 downto 0);
@@ -1999,7 +1990,7 @@ axi_timer_0: component design_1_axi_timer_0_0
       freeze => '0',
       generateout0 => NLW_axi_timer_0_generateout0_UNCONNECTED,
       generateout1 => NLW_axi_timer_0_generateout1_UNCONNECTED,
-      interrupt => axi_timer_0_interrupt,
+      interrupt => NLW_axi_timer_0_interrupt_UNCONNECTED,
       pwm0 => axi_timer_0_pwm0,
       s_axi_aclk => processing_system7_0_FCLK_CLK0,
       s_axi_araddr(4 downto 0) => ps7_0_axi_periph_M02_AXI_ARADDR(4 downto 0),
@@ -2028,7 +2019,7 @@ axi_timer_1: component design_1_axi_timer_0_1
       freeze => '0',
       generateout0 => NLW_axi_timer_1_generateout0_UNCONNECTED,
       generateout1 => NLW_axi_timer_1_generateout1_UNCONNECTED,
-      interrupt => axi_timer_1_interrupt,
+      interrupt => NLW_axi_timer_1_interrupt_UNCONNECTED,
       pwm0 => axi_timer_1_pwm0,
       s_axi_aclk => processing_system7_0_FCLK_CLK0,
       s_axi_araddr(4 downto 0) => ps7_0_axi_periph_M03_AXI_ARADDR(4 downto 0),
@@ -2071,7 +2062,6 @@ processing_system7_0: component design_1_processing_system7_0_0
       DDR_WEB => DDR_we_n,
       FCLK_CLK0 => processing_system7_0_FCLK_CLK0,
       FCLK_RESET0_N => processing_system7_0_FCLK_RESET0_N,
-      IRQ_F2P(1 downto 0) => xlconcat_0_dout(1 downto 0),
       MIO(53 downto 0) => FIXED_IO_mio(53 downto 0),
       M_AXI_GP0_ACLK => processing_system7_0_FCLK_CLK0,
       M_AXI_GP0_ARADDR(31 downto 0) => processing_system7_0_M_AXI_GP0_ARADDR(31 downto 0),
@@ -2252,11 +2242,5 @@ rst_ps7_0_100M: component design_1_rst_ps7_0_100M_0
       peripheral_aresetn(0) => rst_ps7_0_100M_peripheral_aresetn(0),
       peripheral_reset(0) => NLW_rst_ps7_0_100M_peripheral_reset_UNCONNECTED(0),
       slowest_sync_clk => processing_system7_0_FCLK_CLK0
-    );
-xlconcat_0: component design_1_xlconcat_0_0
-     port map (
-      In0(0) => axi_timer_0_interrupt,
-      In1(0) => axi_timer_1_interrupt,
-      dout(1 downto 0) => xlconcat_0_dout(1 downto 0)
     );
 end STRUCTURE;

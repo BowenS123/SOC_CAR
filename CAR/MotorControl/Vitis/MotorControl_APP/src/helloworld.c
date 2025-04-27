@@ -1,162 +1,144 @@
-#include <stdio.h>
 #include "platform.h"
-#include "xil_printf.h"
-#include "xparameters.h"
 #include "xgpio.h"
 #include "xtmrctr.h"
-#include "xscugic.h"
-#include "xil_exception.h"
+#include "xil_printf.h"
+#include "xstatus.h"
+#include "xparameters.h"
 #include "sleep.h"
 
-#define TIMER_DEVICE_ID XPAR_AXI_TIMER_0_DEVICE_ID
-#define TIMER_INTR XPAR_FABRIC_AXI_TIMER_0_INTERRUPT_INTR
-#define SCUGIC_DEVICE_ID XPAR_SCUGIC_0_DEVICE_ID
-#define TIMER_CHANNEL_1 0
-#define TIMER_CHANNEL_2 1
-#define TIMER_PERIOD_US 10000
-#define TIMER_PWM_HIGH_TIME_US 5000
+XGpio Gpio0, Gpio1;
+XTmrCtr TmrCtr0, TmrCtr1;
 
-#define GPIO_DEVICE_ID_0 XPAR_AXI_GPIO_0_DEVICE_ID
-#define GPIO_DEVICE_ID_1 XPAR_AXI_GPIO_1_DEVICE_ID
 #define GPIO_CHANNEL 1
-
 #define IN1_PIN 0
 #define IN2_PIN 1
 #define IN3_PIN 0
 #define IN4_PIN 1
 
-XTmrCtr xTmrCtr_Inst;
-XGpio Gpio0, Gpio1;
-XScuGic xScuGic_Inst;
+#define PWM_PERIOD 10000
+#define PWM_HIGH_TIME 8000
 
-void xTmrCtr_Int_Handler(void *CallBackRef, u8 TmrCtrNumber)
+// Functie om de PWM te configureren
+void ConfigurePWM(XTmrCtr *TimerInstance, u32 PwmPeriod, u32 PwmHighTime)
 {
+    // Stel de timer in voor PWM (peripherals voor PWM instelling)
+    XTmrCtr_PwmConfigure(TimerInstance, PwmPeriod, PwmHighTime);
+    XTmrCtr_PwmEnable(TimerInstance);
 }
 
-int xTmrCtr_Init(XTmrCtr *xTmrCtr_Ptr, u32 DeviceId)
+// Functie om de PWM uit te schakelen
+void DisablePWM(XTmrCtr *TimerInstance)
 {
-    int Status;
-
-    Status = XTmrCtr_Initialize(xTmrCtr_Ptr, DeviceId);
-    if (Status != XST_SUCCESS)
-    {
-        return XST_FAILURE;
-    }
-
-    XTmrCtr_SetHandler(xTmrCtr_Ptr, xTmrCtr_Int_Handler, xTmrCtr_Ptr);
-    XTmrCtr_Reset(xTmrCtr_Ptr, TIMER_CHANNEL_1);
-    XTmrCtr_Reset(xTmrCtr_Ptr, TIMER_CHANNEL_2);
-    XTmrCtr_SetOptions(xTmrCtr_Ptr, TIMER_CHANNEL_1, XTC_INT_MODE_OPTION | XTC_AUTO_RELOAD_OPTION);
-    XTmrCtr_SetOptions(xTmrCtr_Ptr, TIMER_CHANNEL_2, XTC_INT_MODE_OPTION | XTC_AUTO_RELOAD_OPTION);
-
-    return XST_SUCCESS;
+    XTmrCtr_PwmDisable(TimerInstance);
 }
 
-int xScuGic_Init(XScuGic *ScuGic_Ptr, XTmrCtr *xTmrCtr_Ptr)
-{
-    int Status;
-    XScuGic_Config *intc_cfg_ptr;
-    intc_cfg_ptr = XScuGic_LookupConfig(SCUGIC_DEVICE_ID);
-    if (intc_cfg_ptr == NULL)
-    {
-        return XST_FAILURE;
-    }
-    Status = XScuGic_CfgInitialize(ScuGic_Ptr, intc_cfg_ptr, intc_cfg_ptr->CpuBaseAddress);
-    if (Status != XST_SUCCESS)
-    {
-        return XST_FAILURE;
-    }
-    Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT, (Xil_ExceptionHandler)XScuGic_InterruptHandler, ScuGic_Ptr);
-    Xil_ExceptionEnable();
-    XScuGic_Connect(ScuGic_Ptr, TIMER_INTR, (Xil_ExceptionHandler)XTmrCtr_InterruptHandler, (void *)xTmrCtr_Ptr);
-    XScuGic_Enable(ScuGic_Ptr, TIMER_INTR);
-    return XST_SUCCESS;
-}
-
-void SetMotorSpeed(u32 speed)
-{
-    xil_printf("Nieuwe snelheid: %d ns duty cycle\n\r", speed);
-    XTmrCtr_PwmDisable(&xTmrCtr_Inst);
-    XTmrCtr_PwmConfigure(&xTmrCtr_Inst, TIMER_PERIOD_US, speed);
-    XTmrCtr_PwmEnable(&xTmrCtr_Inst);
-}
-
+// Functie om de motoren vooruit te bewegen
 void MotorMoveForward()
 {
-	SetMotorSpeed(8000);
-    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (1 << IN1_PIN) | (0 << IN2_PIN));
-    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (1 << IN3_PIN) | (0 << IN4_PIN));
+    // Stel PWM in voor de motoren
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_TIME);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_TIME);
+
+    // Zet GPIO voor motoren om vooruit te bewegen
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (1 << IN1_PIN) | (0 << IN2_PIN));  // Motor 1 vooruit
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (1 << IN3_PIN) | (0 << IN4_PIN));  // Motor 2 vooruit
+
     xil_printf("Beide motoren bewegen vooruit\n\r");
 }
 
+// Functie om de motoren achteruit te bewegen
 void MotorMoveBackward()
 {
-	SetMotorSpeed(6000);
-    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (0 << IN1_PIN) | (1 << IN2_PIN));
-    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (0 << IN3_PIN) | (1 << IN4_PIN));
+    // Stel PWM in voor de motoren
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_TIME);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_TIME);
+
+    // Zet GPIO voor motoren om achteruit te bewegen
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (0 << IN1_PIN) | (1 << IN2_PIN));  // Motor 1 achteruit
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (0 << IN3_PIN) | (1 << IN4_PIN));  // Motor 2 achteruit
+
     xil_printf("Beide motoren bewegen achteruit\n\r");
 }
 
-void MotorTurnLeft()
+// Functie om de motoren te stoppen
+void MotorStop()
 {
-    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (1 << IN1_PIN) | (0 << IN2_PIN));
-    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (0 << IN3_PIN) | (1 << IN4_PIN));
-    xil_printf("Motor draait naar links\n\r");
+    // Zet PWM uit voor de motoren
+    DisablePWM(&TmrCtr0);
+    DisablePWM(&TmrCtr1);
+
+    // Zet beide motoren uit
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, 0);
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, 0);
+
+    xil_printf("Motoren gestopt\n\r");
 }
 
+// Functie om de motoren naar links te draaien
+void MotorTurnLeft()
+{
+    // Stel PWM in voor de motoren
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_TIME);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_TIME);
+
+    // Zet GPIO voor motoren om naar links te draaien
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (0 << IN1_PIN) | (1 << IN2_PIN));  // Motor 1 achteruit
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (1 << IN3_PIN) | (0 << IN4_PIN));  // Motor 2 vooruit
+
+    xil_printf("Motoren draaien naar links\n\r");
+}
+
+// Functie om de motoren naar rechts te draaien
 void MotorTurnRight()
 {
-    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (0 << IN1_PIN) | (1 << IN2_PIN));
-    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (1 << IN3_PIN) | (0 << IN4_PIN));
-    xil_printf("Motor draait naar rechts\n\r");
+    // Stel PWM in voor de motoren
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_TIME);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_TIME);
+
+    // Zet GPIO voor motoren om naar rechts te draaien
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (1 << IN1_PIN) | (0 << IN2_PIN));  // Motor 1 vooruit
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (0 << IN3_PIN) | (1 << IN4_PIN));  // Motor 2 achteruit
+
+    xil_printf("Motoren draaien naar rechts\n\r");
 }
 
 int main()
 {
     init_platform();
 
-    if (xTmrCtr_Init(&xTmrCtr_Inst, TIMER_DEVICE_ID) != XST_SUCCESS)
-    {
-        xil_printf("AXI Timer Init Error!\n\r");
-        return XST_FAILURE;
-    }
-
-    if (xScuGic_Init(&xScuGic_Inst, &xTmrCtr_Inst) != XST_SUCCESS)
-    {
-        xil_printf("ScuGic Init Error!\n\r");
-        return XST_FAILURE;
-    }
-
-    if (XGpio_Initialize(&Gpio0, GPIO_DEVICE_ID_0) != XST_SUCCESS || XGpio_Initialize(&Gpio1, GPIO_DEVICE_ID_1) != XST_SUCCESS)
+    // Initialiseer de GPIO voor motorbesturing
+    if (XGpio_Initialize(&Gpio0, XPAR_GPIO_0_DEVICE_ID) != XST_SUCCESS || XGpio_Initialize(&Gpio1, XPAR_GPIO_1_DEVICE_ID) != XST_SUCCESS)
     {
         xil_printf("GPIO initialisatie mislukt!\n\r");
         return XST_FAILURE;
     }
 
-    XTmrCtr_Start(&xTmrCtr_Inst, TIMER_CHANNEL_1);
-    XTmrCtr_Start(&xTmrCtr_Inst, TIMER_CHANNEL_2);
+    // Initialiseer de timers voor PWM
+    XTmrCtr_Config *TmrCtrConfig0 = XTmrCtr_LookupConfig(XPAR_AXI_TIMER_0_DEVICE_ID);
+    XTmrCtr_CfgInitialize(&TmrCtr0, TmrCtrConfig0, TmrCtrConfig0->BaseAddress);
 
-	XTmrCtr_PwmDisable(&xTmrCtr_Inst);
-	XTmrCtr_PwmEnable(&xTmrCtr_Inst);
+    XTmrCtr_Config *TmrCtrConfig1 = XTmrCtr_LookupConfig(XPAR_AXI_TIMER_1_DEVICE_ID);
+    XTmrCtr_CfgInitialize(&TmrCtr1, TmrCtrConfig1, TmrCtrConfig1->BaseAddress);
 
+    // Zet de data richting van de GPIO-pinnen
     XGpio_SetDataDirection(&Gpio0, GPIO_CHANNEL, 0x00);
     XGpio_SetDataDirection(&Gpio1, GPIO_CHANNEL, 0x00);
 
-    xil_printf("Motorbesturing actief...\n\r");
+    xil_printf("Motorbesturing actief\n\r");
 
     while (1)
     {
         MotorMoveForward();
-        usleep(5000000);
+        usleep(5000000);  // Wacht 5 seconden
 
         MotorMoveBackward();
-        usleep(5000000);
+        usleep(5000000);  // Wacht 5 seconden
 
         MotorTurnLeft();
-        usleep(5000000);
+        usleep(5000000);  // Wacht 5 seconden
 
         MotorTurnRight();
-        usleep(5000000);
+        usleep(5000000);  // Wacht 5 seconden
     }
 
     cleanup_platform();

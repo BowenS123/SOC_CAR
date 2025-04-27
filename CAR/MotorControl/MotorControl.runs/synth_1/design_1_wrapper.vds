@@ -3,8 +3,8 @@
 # SW Build 5164865 on Thu Sep  5 14:37:11 MDT 2024
 # IP Build 5164407 on Fri Sep  6 08:18:11 MDT 2024
 # SharedData Build 5164864 on Thu Sep 05 13:09:09 MDT 2024
-# Start of session at: Mon Mar 31 10:31:33 2025
-# Process ID: 19004
+# Start of session at: Sun Apr 27 12:37:09 2025
+# Process ID: 13740
 # Current directory: C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1
 # Command line: vivado.exe -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
 # Log file: C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/design_1_wrapper.vds
@@ -17,12 +17,12 @@
 # CPU Physical cores:8
 # CPU Logical cores :8
 # Host memory       :16759 MB
-# Swap memory       :1626 MB
-# Total Virtual     :18385 MB
-# Available Virtual :5093 MB
+# Swap memory       :2154 MB
+# Total Virtual     :18913 MB
+# Available Virtual :3068 MB
 #-----------------------------------------------------------
 source design_1_wrapper.tcl -notrace
-create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 523.805 ; gain = 136.684
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 523.102 ; gain = 134.922
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.1/data/ip'.
@@ -39,23 +39,23 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 9556
+INFO: [Synth 8-7075] Helper process launched with PID 19432
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1445.703 ; gain = 451.488
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1436.898 ; gain = 448.891
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:45]
 INFO: [Synth 8-3491] module 'design_1' declared at 'c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:1536' bound to instance 'design_1_i' of component 'design_1' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:76]
 INFO: [Synth 8-638] synthesizing module 'design_1' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:1570]
-INFO: [Synth 8-3491] module 'design_1_axi_gpio_0_0' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_axi_gpio_0_0_stub.vhdl:6' bound to instance 'axi_gpio_0' of component 'design_1_axi_gpio_0_0' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:1949]
-INFO: [Synth 8-638] synthesizing module 'design_1_axi_gpio_0_0' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_axi_gpio_0_0_stub.vhdl:32]
-INFO: [Synth 8-3491] module 'design_1_axi_gpio_0_1' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_axi_gpio_0_1_stub.vhdl:6' bound to instance 'axi_gpio_1' of component 'design_1_axi_gpio_0_1' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:1972]
-INFO: [Synth 8-638] synthesizing module 'design_1_axi_gpio_0_1' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_axi_gpio_0_1_stub.vhdl:32]
-INFO: [Synth 8-3491] module 'design_1_axi_timer_0_0' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_axi_timer_0_0_stub.vhdl:6' bound to instance 'axi_timer_0' of component 'design_1_axi_timer_0_0' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:1995]
-INFO: [Synth 8-638] synthesizing module 'design_1_axi_timer_0_0' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_axi_timer_0_0_stub.vhdl:38]
-INFO: [Synth 8-3491] module 'design_1_axi_timer_0_1' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_axi_timer_0_1_stub.vhdl:6' bound to instance 'axi_timer_1' of component 'design_1_axi_timer_0_1' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:2024]
-INFO: [Synth 8-638] synthesizing module 'design_1_axi_timer_0_1' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_axi_timer_0_1_stub.vhdl:38]
-INFO: [Synth 8-3491] module 'design_1_processing_system7_0_0' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_processing_system7_0_0_stub.vhdl:6' bound to instance 'processing_system7_0' of component 'design_1_processing_system7_0_0' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:2053]
-INFO: [Synth 8-638] synthesizing module 'design_1_processing_system7_0_0' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_processing_system7_0_0_stub.vhdl:78]
+INFO: [Synth 8-3491] module 'design_1_axi_gpio_0_0' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_axi_gpio_0_0_stub.vhdl:6' bound to instance 'axi_gpio_0' of component 'design_1_axi_gpio_0_0' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:1940]
+INFO: [Synth 8-638] synthesizing module 'design_1_axi_gpio_0_0' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_axi_gpio_0_0_stub.vhdl:32]
+INFO: [Synth 8-3491] module 'design_1_axi_gpio_0_1' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_axi_gpio_0_1_stub.vhdl:6' bound to instance 'axi_gpio_1' of component 'design_1_axi_gpio_0_1' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:1963]
+INFO: [Synth 8-638] synthesizing module 'design_1_axi_gpio_0_1' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_axi_gpio_0_1_stub.vhdl:32]
+INFO: [Synth 8-3491] module 'design_1_axi_timer_0_0' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_axi_timer_0_0_stub.vhdl:6' bound to instance 'axi_timer_0' of component 'design_1_axi_timer_0_0' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:1986]
+INFO: [Synth 8-638] synthesizing module 'design_1_axi_timer_0_0' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_axi_timer_0_0_stub.vhdl:38]
+INFO: [Synth 8-3491] module 'design_1_axi_timer_0_1' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_axi_timer_0_1_stub.vhdl:6' bound to instance 'axi_timer_1' of component 'design_1_axi_timer_0_1' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:2015]
+INFO: [Synth 8-638] synthesizing module 'design_1_axi_timer_0_1' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_axi_timer_0_1_stub.vhdl:38]
+INFO: [Synth 8-3491] module 'design_1_processing_system7_0_0' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_processing_system7_0_0_stub.vhdl:6' bound to instance 'processing_system7_0' of component 'design_1_processing_system7_0_0' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:2044]
+INFO: [Synth 8-638] synthesizing module 'design_1_processing_system7_0_0' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_processing_system7_0_0_stub.vhdl:77]
 INFO: [Synth 8-638] synthesizing module 'design_1_ps7_0_axi_periph_0' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:858]
 INFO: [Synth 8-638] synthesizing module 'm00_couplers_imp_15SPJYW' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:58]
 INFO: [Synth 8-256] done synthesizing module 'm00_couplers_imp_15SPJYW' (0#1) [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:58]
@@ -66,135 +66,57 @@ INFO: [Synth 8-256] done synthesizing module 'm02_couplers_imp_14WQB4R' (0#1) [c
 INFO: [Synth 8-638] synthesizing module 'm03_couplers_imp_YFYJ3U' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:361]
 INFO: [Synth 8-256] done synthesizing module 'm03_couplers_imp_YFYJ3U' (0#1) [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:361]
 INFO: [Synth 8-638] synthesizing module 's00_couplers_imp_UYSKKA' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:485]
-INFO: [Synth 8-3491] module 'design_1_auto_pc_0' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_auto_pc_0_stub.vhdl:6' bound to instance 'auto_pc' of component 'design_1_auto_pc_0' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:668]
-INFO: [Synth 8-638] synthesizing module 'design_1_auto_pc_0' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_auto_pc_0_stub.vhdl:71]
+INFO: [Synth 8-3491] module 'design_1_auto_pc_0' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_auto_pc_0_stub.vhdl:6' bound to instance 'auto_pc' of component 'design_1_auto_pc_0' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:668]
+INFO: [Synth 8-638] synthesizing module 'design_1_auto_pc_0' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_auto_pc_0_stub.vhdl:71]
 INFO: [Synth 8-256] done synthesizing module 's00_couplers_imp_UYSKKA' (0#1) [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:485]
-INFO: [Synth 8-3491] module 'design_1_xbar_0' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_xbar_0_stub.vhdl:6' bound to instance 'xbar' of component 'design_1_xbar_0' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:1437]
-INFO: [Synth 8-638] synthesizing module 'design_1_xbar_0' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_xbar_0_stub.vhdl:52]
+INFO: [Synth 8-3491] module 'design_1_xbar_0' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_xbar_0_stub.vhdl:6' bound to instance 'xbar' of component 'design_1_xbar_0' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:1437]
+INFO: [Synth 8-638] synthesizing module 'design_1_xbar_0' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_xbar_0_stub.vhdl:52]
 INFO: [Synth 8-256] done synthesizing module 'design_1_ps7_0_axi_periph_0' (0#1) [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:858]
-INFO: [Synth 8-3491] module 'design_1_rst_ps7_0_100M_0' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_rst_ps7_0_100M_0_stub.vhdl:6' bound to instance 'rst_ps7_0_100M' of component 'design_1_rst_ps7_0_100M_0' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:2243]
-INFO: [Synth 8-638] synthesizing module 'design_1_rst_ps7_0_100M_0' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-19004-Bowen-Laptop/realtime/design_1_rst_ps7_0_100M_0_stub.vhdl:22]
-INFO: [Synth 8-3491] module 'design_1_xlconcat_0_0' declared at 'c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/ip/design_1_xlconcat_0_0/synth/design_1_xlconcat_0_0.v:53' bound to instance 'xlconcat_0' of component 'design_1_xlconcat_0_0' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:2256]
-INFO: [Synth 8-6157] synthesizing module 'design_1_xlconcat_0_0' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/ip/design_1_xlconcat_0_0/synth/design_1_xlconcat_0_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_6_xlconcat' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/ipshared/6120/hdl/xlconcat_v2_1_vl_rfs.v:59]
-INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_6_xlconcat' (0#1) [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/ipshared/6120/hdl/xlconcat_v2_1_vl_rfs.v:59]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_xlconcat_0_0' (0#1) [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/ip/design_1_xlconcat_0_0/synth/design_1_xlconcat_0_0.v:53]
+INFO: [Synth 8-3491] module 'design_1_rst_ps7_0_100M_0' declared at 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_rst_ps7_0_100M_0_stub.vhdl:6' bound to instance 'rst_ps7_0_100M' of component 'design_1_rst_ps7_0_100M_0' [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:2233]
+INFO: [Synth 8-638] synthesizing module 'design_1_rst_ps7_0_100M_0' [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/.Xil/Vivado-13740-Bowen-Laptop/realtime/design_1_rst_ps7_0_100M_0_stub.vhdl:22]
 INFO: [Synth 8-256] done synthesizing module 'design_1' (0#1) [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/synth/design_1.vhd:1570]
 INFO: [Synth 8-256] done synthesizing module 'design_1_wrapper' (0#1) [c:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:45]
-WARNING: [Synth 8-7129] Port In2[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In3[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In4[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In5[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In6[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In7[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In8[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In9[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In10[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In11[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In12[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In13[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In14[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In15[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In16[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In17[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In18[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In19[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In20[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In21[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In22[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In23[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In24[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In25[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In26[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In27[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In28[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In29[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In30[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In31[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In32[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In33[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In34[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In35[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In36[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In37[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In38[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In39[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In40[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In41[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In42[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In43[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In44[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In45[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In46[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In47[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In48[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In49[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In50[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In51[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In52[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In53[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In54[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In55[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In56[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In57[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In58[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In59[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In60[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In61[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In62[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In63[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In64[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In65[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In66[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In67[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In68[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In69[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In70[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In71[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In72[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In73[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In74[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In75[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In76[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In77[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In78[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In79[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In80[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In81[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In82[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In83[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In84[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In85[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In86[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In87[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In88[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In89[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In90[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In91[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In92[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In93[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In94[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In95[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In96[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In97[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In98[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In99[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In100[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-WARNING: [Synth 8-7129] Port In101[0] in module xlconcat_v2_1_6_xlconcat is either unconnected or has no load
-INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-7129] Port M_ACLK in module s00_couplers_imp_UYSKKA is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_ARESETN in module s00_couplers_imp_UYSKKA is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_ACLK in module m03_couplers_imp_YFYJ3U is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_ARESETN in module m03_couplers_imp_YFYJ3U is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_ACLK in module m03_couplers_imp_YFYJ3U is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_ARESETN in module m03_couplers_imp_YFYJ3U is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_ACLK in module m02_couplers_imp_14WQB4R is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_ARESETN in module m02_couplers_imp_14WQB4R is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_ACLK in module m02_couplers_imp_14WQB4R is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_ARESETN in module m02_couplers_imp_14WQB4R is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_ACLK in module m01_couplers_imp_XU9C55 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_ARESETN in module m01_couplers_imp_XU9C55 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_ACLK in module m01_couplers_imp_XU9C55 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_ARESETN in module m01_couplers_imp_XU9C55 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_ACLK in module m00_couplers_imp_15SPJYW is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_ARESETN in module m00_couplers_imp_15SPJYW is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_ACLK in module m00_couplers_imp_15SPJYW is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_ARESETN in module m00_couplers_imp_15SPJYW is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M00_ACLK in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M00_ARESETN in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M01_ACLK in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M01_ARESETN in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M02_ACLK in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M02_ARESETN in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M03_ACLK in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M03_ARESETN in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S00_ACLK in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S00_ARESETN in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1568.148 ; gain = 573.934
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1558.273 ; gain = 570.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1568.148 ; gain = 573.934
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1558.273 ; gain = 570.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1568.148 ; gain = 573.934
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1558.273 ; gain = 570.266
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 1568.148 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1558.273 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -223,22 +145,22 @@ Parsing XDC File [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/s
 Finished Parsing XDC File [C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1584.016 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1580.535 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 1584.016 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1580.535 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1580.535 ; gain = 592.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1580.535 ; gain = 592.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -509,16 +431,15 @@ Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/axi_timer_0. (constrai
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/axi_timer_1. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/axi_gpio_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/axi_gpio_1. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/xlconcat_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/ps7_0_axi_periph/xbar. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/ps7_0_axi_periph/s00_couplers/auto_pc. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/ps7_0_axi_periph. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/rst_ps7_0_100M. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1580.535 ; gain = 592.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1580.535 ; gain = 592.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -540,26 +461,36 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port M00_ACLK in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M00_ARESETN in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M01_ACLK in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M01_ARESETN in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M02_ACLK in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M02_ARESETN in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M03_ACLK in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M03_ARESETN in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S00_ACLK in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S00_ARESETN in module design_1_ps7_0_axi_periph_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1580.535 ; gain = 592.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1580.535 ; gain = 592.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1580.535 ; gain = 592.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1580.535 ; gain = 592.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -577,37 +508,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1580.535 ; gain = 592.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1580.535 ; gain = 592.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1580.535 ; gain = 592.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1580.535 ; gain = 592.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1580.535 ; gain = 592.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1580.535 ; gain = 592.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -642,25 +573,25 @@ Report Cell Usage:
 |9     |OBUF                                 |     6|
 +------+-------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1580.535 ; gain = 592.527
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:35 . Memory (MB): peak = 1584.016 ; gain = 573.934
-Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1584.016 ; gain = 589.801
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1580.535 ; gain = 570.266
+Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 1580.535 ; gain = 592.527
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1584.125 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1580.535 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1588.156 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1580.535 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: ee311da1
+Synth Design complete | Checksum: 769bad36
 INFO: [Common 17-83] Releasing license: Synthesis
-62 Infos, 101 Warnings, 0 Critical Warnings and 0 Errors encountered.
+56 Infos, 39 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1588.156 ; gain = 1026.102
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1588.156 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 1580.535 ; gain = 1018.137
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1580.535 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/PXL/devWorks/devWorks2/CAR/MotorControl/MotorControl.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Mar 31 10:32:33 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 27 12:38:10 2025...

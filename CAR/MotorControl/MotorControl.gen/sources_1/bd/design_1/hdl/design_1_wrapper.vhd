@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.1.2 (win64) Build 5164865 Thu Sep  5 14:37:11 MDT 2024
---Date        : Mon Mar 31 10:16:05 2025
+--Date        : Sun Apr 27 12:34:02 2025
 --Host        : Bowen-Laptop running 64-bit major release  (build 9200)
 --Command     : generate_target design_1_wrapper.bd
 --Design      : design_1_wrapper
@@ -66,10 +66,10 @@ architecture STRUCTURE of design_1_wrapper is
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
-    pwm0_0 : out STD_LOGIC;
-    pwm0_1 : out STD_LOGIC;
     DIRECTIONS_0_tri_o : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    DIRECTIONS_1_tri_o : out STD_LOGIC_VECTOR ( 1 downto 0 )
+    DIRECTIONS_1_tri_o : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    pwm0_0 : out STD_LOGIC;
+    pwm0_1 : out STD_LOGIC
   );
   end component design_1;
 begin

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xBEB1A61F3969EFF2",
+      "boundary_crc": "0xBEB1A61FC666D96E",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../MotorControl.gen/sources_1/bd/design_1",
       "name": "design_1",
@@ -16,7 +16,6 @@
       "axi_timer_1": "",
       "axi_gpio_0": "",
       "axi_gpio_1": "",
-      "xlconcat_0": "",
       "ps7_0_axi_periph": {
         "xbar": "",
         "s00_couplers": {
@@ -358,18 +357,6 @@
           "PCW_CLK3_FREQ": {
             "value": "10000000"
           },
-          "PCW_CORE0_FIQ_INTR": {
-            "value": "0"
-          },
-          "PCW_CORE0_IRQ_INTR": {
-            "value": "0"
-          },
-          "PCW_CORE1_FIQ_INTR": {
-            "value": "0"
-          },
-          "PCW_CORE1_IRQ_INTR": {
-            "value": "0"
-          },
           "PCW_CPU_CPU_6X4X_MAX_RANGE": {
             "value": "667"
           },
@@ -702,9 +689,6 @@
           },
           "PCW_INCLUDE_ACP_TRANS_CHECK": {
             "value": "0"
-          },
-          "PCW_IRQ_F2P_INTR": {
-            "value": "1"
           },
           "PCW_IRQ_F2P_MODE": {
             "value": "DIRECT"
@@ -1309,24 +1293,6 @@
           "PCW_OVERRIDE_BASIC_CLOCK": {
             "value": "0"
           },
-          "PCW_P2F_ENET0_INTR": {
-            "value": "0"
-          },
-          "PCW_P2F_GPIO_INTR": {
-            "value": "0"
-          },
-          "PCW_P2F_QSPI_INTR": {
-            "value": "0"
-          },
-          "PCW_P2F_SDIO0_INTR": {
-            "value": "0"
-          },
-          "PCW_P2F_UART0_INTR": {
-            "value": "0"
-          },
-          "PCW_P2F_USB0_INTR": {
-            "value": "0"
-          },
           "PCW_PACKAGE_DDR_BOARD_DELAY0": {
             "value": "0.279"
           },
@@ -1361,7 +1327,7 @@
             "value": "200"
           },
           "PCW_PERIPHERAL_BOARD_PRESET": {
-            "value": "None"
+            "value": "part0"
           },
           "PCW_PLL_BYPASSMODE_ENABLE": {
             "value": "0"
@@ -1485,6 +1451,18 @@
           },
           "PCW_SPI_PERIPHERAL_VALID": {
             "value": "0"
+          },
+          "PCW_S_AXI_HP0_DATA_WIDTH": {
+            "value": "64"
+          },
+          "PCW_S_AXI_HP1_DATA_WIDTH": {
+            "value": "64"
+          },
+          "PCW_S_AXI_HP2_DATA_WIDTH": {
+            "value": "64"
+          },
+          "PCW_S_AXI_HP3_DATA_WIDTH": {
+            "value": "64"
           },
           "PCW_TPIU_PERIPHERAL_CLKSRC": {
             "value": "External"
@@ -1805,7 +1783,7 @@
             "value": "0"
           },
           "PCW_USE_FABRIC_INTERRUPT": {
-            "value": "1"
+            "value": "0"
           },
           "PCW_USE_HIGH_OCM": {
             "value": "0"
@@ -2030,13 +2008,6 @@
             "value": "2"
           }
         }
-      },
-      "xlconcat_0": {
-        "vlnv": "xilinx.com:ip:xlconcat:2.1",
-        "ip_revision": "6",
-        "xci_name": "design_1_xlconcat_0_0",
-        "xci_path": "ip\\design_1_xlconcat_0_0\\design_1_xlconcat_0_0.xci",
-        "inst_hier_path": "xlconcat_0"
       },
       "ps7_0_axi_periph": {
         "vlnv": "xilinx.com:ip:axi_interconnect:2.1",
@@ -2690,22 +2661,10 @@
       }
     },
     "nets": {
-      "axi_timer_0_interrupt": {
-        "ports": [
-          "axi_timer_0/interrupt",
-          "xlconcat_0/In0"
-        ]
-      },
       "axi_timer_0_pwm0": {
         "ports": [
           "axi_timer_0/pwm0",
           "pwm0_0"
-        ]
-      },
-      "axi_timer_1_interrupt": {
-        "ports": [
-          "axi_timer_1/interrupt",
-          "xlconcat_0/In1"
         ]
       },
       "axi_timer_1_pwm0": {
@@ -2750,12 +2709,6 @@
           "ps7_0_axi_periph/M02_ARESETN",
           "axi_timer_1/s_axi_aresetn",
           "ps7_0_axi_periph/M03_ARESETN"
-        ]
-      },
-      "xlconcat_0_dout": {
-        "ports": [
-          "xlconcat_0/dout",
-          "processing_system7_0/IRQ_F2P"
         ]
       }
     },
