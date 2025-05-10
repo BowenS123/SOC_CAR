@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Fri May  9 21:12:53 2025
+# Process ID: 10232
+# Current directory: C:/ProjectenVivado/SystemOnChip/Car/IMU
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11404 C:\ProjectenVivado\SystemOnChip\Car\IMU\IMU.xpr
+# Log file: C:/ProjectenVivado/SystemOnChip/Car/IMU/vivado.log
+# Journal file: C:/ProjectenVivado/SystemOnChip/Car/IMU\vivado.jou
+# Running On        :MSI-Katana
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26100
+# Processor Detail  :12th Gen Intel(R) Core(TM) i7-12700H
+# CPU Frequency     :2688 MHz
+# CPU Physical cores:14
+# CPU Logical cores :20
+# Host memory       :16870 MB
+# Swap memory       :4160 MB
+# Total Virtual     :21030 MB
+# Available Virtual :11631 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/ProjectenVivado/SystemOnChip/Car/IMU/IMU.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 20
+wait_on_run synth_1
+launch_runs impl_1 -jobs 20
+wait_on_run impl_1
+open_run impl_1
