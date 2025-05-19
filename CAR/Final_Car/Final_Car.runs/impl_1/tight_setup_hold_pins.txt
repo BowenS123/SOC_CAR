@@ -1,0 +1,54 @@
++===============================+===============================+==================================================================================================+
+| Launch Setup Clock            | Launch Hold Clock             | Pin                                                                                              |
++===============================+===============================+==================================================================================================+
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[7]/D  |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[6]/D  |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[12]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[12]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[9]/D  |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[7]/D  |
+| clk_fpga_0                    | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[25]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[14]/D |
+| clk_fpga_0                    | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[24]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[6]/D  |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[5]/D  |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[9]/D  |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[4]/D  |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[18]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[5]/D  |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[4]/D  |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[18]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[8]/D  |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[13]/D |
+| clk_fpga_0                    | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[28]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[17]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[15]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[15]/D |
+| clk_fpga_0                    | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[22]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[13]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[14]/D |
+| clk_fpga_0                    | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[24]/D |
+| clk_fpga_0                    | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[30]/D |
+| clk_fpga_0                    | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[26]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[17]/D |
+| clk_fpga_0                    | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[26]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[8]/D  |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[16]/D |
+| clk_fpga_0                    | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[25]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[3]/D  |
+| clk_fpga_0                    | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[22]/D |
+| clk_fpga_0                    | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[20]/D |
+| clk_fpga_0                    | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[28]/D |
+| clk_fpga_0                    | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[33]/D |
+| clk_fpga_0                    | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[23]/D |
+| clk_fpga_0                    | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[34]/D |
+| clk_fpga_0                    | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[34]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[16]/D |
+| clk_fpga_0                    | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[23]/D |
+| clk_fpga_0                    | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[31]/D |
+| clk_fpga_0                    | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[31]/D |
+| clk_fpga_0                    | clk_out2_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[30]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg[10]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[10]/D |
+| clk_out1_design_1_clk_wiz_0_0 | clk_out3_design_1_clk_wiz_0_0 | design_1_i/ps7_0_axi_periph/xbar/inst/gen_sasd.crossbar_sasd_0/reg_slice_r/skid_buffer_reg[3]/D  |
++-------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------+
