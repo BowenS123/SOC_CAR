@@ -1,0 +1,373 @@
+/******************************************************************************
+* Copyright (C) 2023 Advanced Micro Devices, Inc. All Rights Reserved.
+* SPDX-License-Identifier: MIT
+******************************************************************************/
+/*
+ * helloworld.c: simple test application
+ *
+ * This application configures UART 16550 to baud rate 9600.
+ * PS7 UART (Zynq) is not initialized by this application, since
+ * bootrom/bsp configures it to baud rate 115200
+ *
+ * ------------------------------------------------
+ * | UART TYPE   BAUD RATE                        |
+ * ------------------------------------------------
+ *   uartns550   9600
+ *   uartlite    Configurable only in HW design
+ *   ps7_uart    115200 (configured by bootrom/bsp)
+ */
+
+#include <stdio.h>
+#include "platform.h"
+#include "xil_printf.h"
+#include "eFPGA_AXI_LM393_driver.h"
+#include "xparameters.h"
+#include "xgpio.h"
+#include "xtmrctr.h"
+#include "xil_io.h"
+#include "xtime_l.h"
+#include <math.h>
+#include <stdlib.h>
+#include "xiic.h"
+#include <unistd.h>
+#include "HC_SR04.h"
+
+
+
+XGpio Gpio0, Gpio1, Gpio2, Gpio3;
+XTmrCtr TmrCtr0, TmrCtr1, TmrCtr2, TmrCtr3;
+
+//Value tweaks
+#define TIME_PER_MOVEMENT_MS 2000
+#define SPEEDSENSOR_DIFFERENCE_MAX 500
+#define SPEEDSENSOR_VALID_TRESHOLD 200
+#define ACCELEROMETER_X_MAX 2000
+#define ACCELEROMETER_Y_MAX 2000
+#define ACCELEROMETER_Z_MAX 2000
+#define GYROSCOPE_X_BASE 1200
+#define GYROSCOPE_X_RANGE 200
+#define GYROSCOPE_Y_BASE 1200
+#define GYROSCOPE_Y_RANGE 200
+#define GYROSCOPE_Z_BASE 1200
+#define GYROSCOPE_Z_RANGE 200
+#define ULTRASONIC_STOP_DISTANCE 5000
+
+#define GPIO_CHANNEL 1
+#define IN1_PIN 0
+#define IN2_PIN 1
+#define IN3_PIN 0
+#define IN4_PIN 1
+
+#define PWM_PERIOD 10000
+#define PWM_HIGH_FAST 9500
+#define PWM_HIGH_MEDIUM 8500
+#define PWM_HIGH_SLOW 7500
+
+#define WHEEL_HOLES 20
+#define INTERVAL_SECONDS 5
+
+
+/*******************************************
+ *              Ultrasonic                 *
+ *******************************************/
+
+#define HC_SR04_R 0x43c00000
+#define HC_SR04_L 0x43c10000
+
+/*******************************************
+ *                    IMU                  *
+ *******************************************/
+
+#define MPU6050_I2C_ADDRESS 0x68
+#define WHO_AM_I_REGISTER 0x75
+
+u8 who_am_i = 0;  // Variable to store the value read from the WHO_AM_I register
+
+// Commands for MPU initialization and data reading
+u8 MPU_init[] = {0x6B, 0};
+u8 MPU_read[] = {0x3B};
+
+// Calibration constants for sensor data
+int16_t AcX, AcY, AcZ, Tmp, GyX, GyY, GyZ;
+int AcXcal = -950, AcYcal = -300, AcZcal = 0;
+int tcal = -1600;
+int GyXcal = 480, GyYcal = 170, GyZcal = 210;
+double t, tx, pitch, roll;
+
+/*******************************************************************
+ *                     Speedsensor and motor control               *
+ *******************************************************************/
+
+
+// Functie om de PWM te configureren
+void ConfigurePWM(XTmrCtr *TimerInstance, u32 PwmPeriod, u32 PwmHighTime)
+{
+    // Stel de timer in voor PWM (peripherals voor PWM instelling)
+    XTmrCtr_PwmConfigure(TimerInstance, PwmPeriod, PwmHighTime);
+    XTmrCtr_PwmEnable(TimerInstance);
+}
+
+// Functie om de PWM uit te schakelen
+void DisablePWM(XTmrCtr *TimerInstance)
+{
+    XTmrCtr_PwmDisable(TimerInstance);
+}
+
+// Functie om de motoren vooruit te bewegen
+void MotorMoveForward()
+{
+    // Stel PWM in voor de motoren
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_FAST);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_FAST);
+    ConfigurePWM(&TmrCtr2, PWM_PERIOD, PWM_HIGH_FAST);
+    ConfigurePWM(&TmrCtr3, PWM_PERIOD, PWM_HIGH_FAST);
+
+    // Zet GPIO voor motoren om vooruit te bewegen
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (1 << IN1_PIN) | (0 << IN2_PIN));  // Motor 1 vooruit
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (1 << IN3_PIN) | (0 << IN4_PIN));  // Motor 2 vooruit
+    XGpio_DiscreteWrite(&Gpio2, GPIO_CHANNEL, (1 << IN1_PIN) | (0 << IN2_PIN));  // Motor 1 vooruit
+    XGpio_DiscreteWrite(&Gpio3, GPIO_CHANNEL, (1 << IN3_PIN) | (0 << IN4_PIN));  // Motor 2 vooruit
+
+    xil_printf("Beide motoren bewegen vooruit\n\r");
+}
+
+// Functie om de motoren achteruit te bewegen
+void MotorMoveBackward()
+{
+    // Stel PWM in voor de motoren
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_SLOW);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_SLOW);
+
+    // Zet GPIO voor motoren om achteruit te bewegen
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (0 << IN1_PIN) | (1 << IN2_PIN));  // Motor 1 achteruit
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (0 << IN3_PIN) | (1 << IN4_PIN));  // Motor 2 achteruit
+
+    xil_printf("Beide motoren bewegen achteruit\n\r");
+}
+
+// Functie om de motoren te stoppen
+void MotorStop()
+{
+    // Zet PWM uit voor de motoren
+    DisablePWM(&TmrCtr0);
+    DisablePWM(&TmrCtr1);
+
+    // Zet beide motoren uit
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, 0);
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, 0);
+
+    xil_printf("Motoren gestopt\n\r");
+}
+
+// Functie om de motoren naar links te draaien
+void MotorTurnLeft()
+{
+    // Stel PWM in voor de motoren
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_MEDIUM);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_SLOW);
+
+    // Zet GPIO voor motoren om naar links te draaien
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (0 << IN1_PIN) | (1 << IN2_PIN));  // Motor 1 achteruit
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (1 << IN3_PIN) | (0 << IN4_PIN));  // Motor 2 vooruit
+
+    xil_printf("Motoren draaien naar links\n\r");
+}
+
+// Functie om de motoren naar rechts te draaien
+void MotorTurnRight()
+{
+    // Stel PWM in voor de motoren
+    ConfigurePWM(&TmrCtr0, PWM_PERIOD, PWM_HIGH_SLOW);
+    ConfigurePWM(&TmrCtr1, PWM_PERIOD, PWM_HIGH_MEDIUM);
+
+    // Zet GPIO voor motoren om naar rechts te draaien
+    XGpio_DiscreteWrite(&Gpio0, GPIO_CHANNEL, (1 << IN1_PIN) | (0 << IN2_PIN));  // Motor 1 vooruit
+    XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL, (0 << IN3_PIN) | (1 << IN4_PIN));  // Motor 2 achteruit
+
+    xil_printf("Motoren draaien naar rechts\n\r");
+}
+
+
+int main()
+{
+	/*******************************************************************
+	 *                     Speedsensor and motor control               *
+	 *******************************************************************/
+	init_platform();
+
+	XTime runtime = 0;
+	XTime tStart, tEnd, tHalt;
+
+	// Initialiseer de GPIO voor motorbesturing
+	if (XGpio_Initialize(&Gpio0, XPAR_GPIO_0_DEVICE_ID) != XST_SUCCESS || XGpio_Initialize(&Gpio1, XPAR_GPIO_1_DEVICE_ID) != XST_SUCCESS)
+	{
+		xil_printf("GPIO initialisatie mislukt!\n\r");
+		return XST_FAILURE;
+	}
+
+	// Initialiseer de timers voor PWM
+	XTmrCtr_Config *TmrCtrConfig0 = XTmrCtr_LookupConfig(XPAR_MOTORCONTROL_MOTORCONTROL0_EFPGA_AXI_LM393_DRIV_0_DEVICE_ID);
+	XTmrCtr_CfgInitialize(&TmrCtr0, TmrCtrConfig0, TmrCtrConfig0->BaseAddress);
+
+	XTmrCtr_Config *TmrCtrConfig1 = XTmrCtr_LookupConfig(XPAR_MOTORCONTROL_MOTORCONTROL1_EFPGA_AXI_LM393_DRIV_1_DEVICE_ID);
+	XTmrCtr_CfgInitialize(&TmrCtr1, TmrCtrConfig1, TmrCtrConfig1->BaseAddress);
+
+	XTmrCtr_Config *TmrCtrConfig2 = XTmrCtr_LookupConfig(XPAR_MOTORCONTROL_MOTORCONTROL2_EFPGA_AXI_LM393_DRIV_2_DEVICE_ID);
+	XTmrCtr_CfgInitialize(&TmrCtr2, TmrCtrConfig2, TmrCtrConfig1->BaseAddress);
+
+	XTmrCtr_Config *TmrCtrConfig3 = XTmrCtr_LookupConfig(XPAR_MOTORCONTROL_MOTORCONTROL3_EFPGA_AXI_LM393_DRIV_3_DEVICE_ID);
+	XTmrCtr_CfgInitialize(&TmrCtr3, TmrCtrConfig3, TmrCtrConfig1->BaseAddress);
+
+
+	// Zet de data richting van de GPIO-pinnen
+	XGpio_SetDataDirection(&Gpio0, GPIO_CHANNEL, 0x00);
+	XGpio_SetDataDirection(&Gpio1, GPIO_CHANNEL, 0x00);
+
+	xil_printf("Motorbesturing actief\n\r");
+
+	/*******************************************
+	 *                    IMU                  *
+	 *******************************************/
+
+	u8 DataBuffer[14];  // Buffer to store sensor data
+	u8 who_am_i_reg = WHO_AM_I_REGISTER;  // Register address for WHO_AM_I
+
+
+	// Request the WHO_AM_I register
+	XIic_Send(XPAR_IIC_0_BASEADDR, MPU6050_I2C_ADDRESS, &who_am_i_reg, 1, XIIC_REPEATED_START);
+	XIic_Recv(XPAR_IIC_0_BASEADDR, MPU6050_I2C_ADDRESS, &who_am_i, 1, XIIC_STOP);
+
+	printf("WHO_AM_I register value: 0x%X\n\r", who_am_i);
+
+	// Check if the value is expected for MPU-6050
+	if (who_am_i == 0x68) {
+		printf("MPU-6050 detected successfully!\n\r");
+	} else {
+		printf("Failed to detect MPU-6050. Check wiring and I2C address.\n\r");
+	}
+
+	// Send initialization command to MPU
+	XIic_Send(XPAR_IIC_0_BASEADDR, MPU6050_I2C_ADDRESS, MPU_init, 2, XIIC_STOP);
+
+	// Display startup messages
+	printf("Hello World\n\r");
+	printf("Successfully ran Hello World application\n\r");
+
+	// Main loop for continuous sensor reading and display
+	void (*movement_array[])(void) = {
+			MotorMoveForward,
+			MotorMoveBackward,
+			MotorTurnLeft,
+			MotorMoveForward,
+			MotorTurnRight,
+			MotorMoveBackward
+	};
+	int movement_steps = sizeof(movement_array)/sizeof(void*);
+
+	while (1)
+	{
+		for(int i=0;i<movement_steps;i++){
+			//Drive direction
+			movement_array[i]();
+			XTime_GetTime(&tStart);
+
+			const XTime runtime_step_1 = TIME_PER_MOVEMENT_MS * (COUNTS_PER_SECOND/1000);//time in ms to run for
+			runtime = 0;
+			int halted = 0;
+
+			while(runtime<runtime_step_1){
+				//Calculate speed difference
+				uint32_t sensorval1 = EFPGA_AXI_LM393_DRIVER_mReadReg(XPAR_MOTORCONTROL_MOTORCONTROL0_EFPGA_AXI_LM393_DRIV_0_S00_AXI_BASEADDR,EFPGA_AXI_LM393_DRIVER_S00_AXI_SLV_REG0_OFFSET);
+				uint32_t sensorval2 = EFPGA_AXI_LM393_DRIVER_mReadReg(XPAR_MOTORCONTROL_MOTORCONTROL1_EFPGA_AXI_LM393_DRIV_1_S00_AXI_BASEADDR,EFPGA_AXI_LM393_DRIVER_S00_AXI_SLV_REG0_OFFSET);
+				uint32_t sensorval3 = EFPGA_AXI_LM393_DRIVER_mReadReg(XPAR_MOTORCONTROL_MOTORCONTROL2_EFPGA_AXI_LM393_DRIV_2_S00_AXI_BASEADDR,EFPGA_AXI_LM393_DRIVER_S00_AXI_SLV_REG0_OFFSET);
+				uint32_t sensorval4 = EFPGA_AXI_LM393_DRIVER_mReadReg(XPAR_MOTORCONTROL_MOTORCONTROL3_EFPGA_AXI_LM393_DRIV_3_S00_AXI_BASEADDR,EFPGA_AXI_LM393_DRIVER_S00_AXI_SLV_REG0_OFFSET);
+				if(sensorval1 > SPEEDSENSOR_VALID_TRESHOLD && sensorval2>SPEEDSENSOR_VALID_TRESHOLD){
+					if(abs(sensorval2-sensorval1)>SPEEDSENSOR_DIFFERENCE_MAX){
+						//Speed mismatch detected
+						xil_printf("Speed mismatch front detected \n");
+					}
+				}
+				if(sensorval2 > SPEEDSENSOR_VALID_TRESHOLD && sensorval3>SPEEDSENSOR_VALID_TRESHOLD){
+					if(abs(sensorval3-sensorval2)>SPEEDSENSOR_DIFFERENCE_MAX){
+						//Speed mismatch detected
+						xil_printf("Speed mismatch right detected \n");
+					}
+				}
+				if(sensorval3 > SPEEDSENSOR_VALID_TRESHOLD && sensorval4>SPEEDSENSOR_VALID_TRESHOLD){
+					if(abs(sensorval4-sensorval3)>SPEEDSENSOR_DIFFERENCE_MAX){
+						//Speed mismatch detected
+						xil_printf("Speed mismatch back detected \n");
+					}
+				}
+				if(sensorval4 > SPEEDSENSOR_VALID_TRESHOLD && sensorval1>SPEEDSENSOR_VALID_TRESHOLD){
+					if(abs(sensorval1-sensorval4)>SPEEDSENSOR_DIFFERENCE_MAX){
+						//Speed mismatch detected
+						xil_printf("Speed mismatch left detected \n");
+					}
+				}
+
+				// Send read command to MPU
+				XIic_Send(XPAR_IIC_0_BASEADDR, MPU6050_I2C_ADDRESS, MPU_read, 1, XIIC_REPEATED_START);
+				XIic_Recv(XPAR_IIC_0_BASEADDR, MPU6050_I2C_ADDRESS, DataBuffer, 14, XIIC_STOP);
+
+				// Parse accelerometer data
+				AcX = (DataBuffer[0] << 8) | DataBuffer[1];
+				AcY = (DataBuffer[2] << 8) | DataBuffer[3];
+				AcZ = (DataBuffer[4] << 8) | DataBuffer[5];
+
+				// Parse gyroscope data
+				GyX = (DataBuffer[8] << 8) | DataBuffer[9];
+				GyY = (DataBuffer[10] << 8) | DataBuffer[11];
+				GyZ = (DataBuffer[12] << 8) | DataBuffer[13];
+
+				int GyX_dif = abs(GyX - GYROSCOPE_X_BASE);
+				int GyY_dif = abs(GyY - GYROSCOPE_Y_BASE);
+				int GyZ_dif = abs(GyZ - GYROSCOPE_Z_BASE);
+
+				//Check ultrasonic sensor
+				int distance_R = HC_SR04_mReadReg(HC_SR04_R,0);
+				int distance_L = HC_SR04_mReadReg(HC_SR04_L,0);
+
+
+				if(
+					AcX>ACCELEROMETER_X_MAX ||
+					AcY>ACCELEROMETER_Y_MAX ||
+					AcZ > ACCELEROMETER_Z_MAX ||
+					GyX_dif > GYROSCOPE_X_RANGE ||
+					GyY_dif > GYROSCOPE_Y_RANGE ||
+					GyZ_dif > GYROSCOPE_Z_RANGE ||
+					distance_L < ULTRASONIC_STOP_DISTANCE ||
+					distance_R < ULTRASONIC_STOP_DISTANCE
+				){
+					//Halt wheels until stable
+					MotorStop();
+					if(halted==0){
+						XTime_GetTime(&tHalt);
+					}
+					halted=1;
+					continue;
+
+				} else{
+					//Reset halt timer if necessary and continue movement
+					if(halted){
+						movement_array[i]();
+						halted =0;
+
+						//Add lost time
+						XTime_GetTime(&tEnd);
+						tStart += tEnd - tHalt;
+						continue;
+					}
+				}
+
+
+				//Collect data
+				XTime_GetTime(&tEnd);
+				runtime = (tEnd - tStart) / (COUNTS_PER_SECOND / 1000);
+			}
+		}
+	}
+
+	cleanup_platform();
+	return 0;
+}

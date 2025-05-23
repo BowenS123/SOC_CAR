@@ -1,0 +1,55 @@
+timestamp=[2025-05-22 11:06:53], mode=WORKBENCH_START, duration=0:11:22.388, duration_ms=682388, data={}
+timestamp=[2025-05-22 11:06:53], mode=WORKBENCH_UI_INIT, duration=0:00:00.016, duration_ms=16, data={editors_count=0, platform_editors_count=0, projects_count=0, platform_projects_count=0, active_platform_editor=false, projects=}
+timestamp=[2025-05-22 11:06:54], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.062, duration_ms=62, data={}
+timestamp=[2025-05-22 11:14:24], mode=APP_CREATION, duration=0:00:27.614, duration_ms=27614, data={name=car_assembly, project_type=sdk, os=standalone, processor=ps7_cortexa9, runtime=cpp, platform=FinalCar, application_type=application}
+timestamp=[2025-05-22 11:21:29], mode=PLATFORM_GENERATION, duration=0:00:10.720, duration_ms=10720, data={name=FinalCar}
+timestamp=[2025-05-22 11:42:54], mode=PLATFORM_GENERATION, duration=0:00:06.968, duration_ms=6968, data={name=FinalCar}
+timestamp=[2025-05-22 11:42:54], mode=BUILD, duration=0:00:00.519, duration_ms=519, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-22 11:43:43], mode=PLATFORM_GENERATION, duration=0:00:06.941, duration_ms=6941, data={name=FinalCar}
+timestamp=[2025-05-22 11:44:11], mode=PLATFORM_GENERATION, duration=0:00:02.727, duration_ms=2727, data={name=FinalCar}
+timestamp=[2025-05-22 11:44:11], mode=BUILD, duration=0:00:00.182, duration_ms=182, data={name=car_assembly, configuration=Debug, clean_build=true}
+timestamp=[2025-05-22 11:44:14], mode=PLATFORM_GENERATION, duration=0:00:02.622, duration_ms=2622, data={name=FinalCar}
+timestamp=[2025-05-22 11:44:14], mode=BUILD, duration=0:00:00.168, duration_ms=168, data={name=car_assembly, configuration=Debug, clean_build=true}
+timestamp=[2025-05-22 11:44:14], mode=BUILD, duration=0:00:00.178, duration_ms=178, data={name=car_assembly_system, configuration=Debug, clean_build=true}
+timestamp=[2025-05-22 11:44:17], mode=PLATFORM_GENERATION, duration=0:00:02.624, duration_ms=2624, data={name=FinalCar}
+timestamp=[2025-05-22 11:44:24], mode=PLATFORM_GENERATION, duration=0:00:06.900, duration_ms=6900, data={name=FinalCar}
+timestamp=[2025-05-22 11:44:39], mode=PLATFORM_GENERATION, duration=0:00:06.890, duration_ms=6890, data={name=FinalCar}
+timestamp=[2025-05-22 11:44:58], mode=PLATFORM_GENERATION, duration=0:00:07.006, duration_ms=7006, data={name=FinalCar}
+timestamp=[2025-05-22 11:45:04], mode=PLATFORM_GENERATION, duration=0:00:02.668, duration_ms=2668, data={name=FinalCar}
+timestamp=[2025-05-22 11:45:04], mode=BUILD, duration=0:00:00.172, duration_ms=172, data={name=car_assembly, configuration=Debug, clean_build=true}
+timestamp=[2025-05-22 11:45:08], mode=PLATFORM_GENERATION, duration=0:00:02.618, duration_ms=2618, data={name=FinalCar}
+timestamp=[2025-05-22 11:45:08], mode=BUILD, duration=0:00:00.167, duration_ms=167, data={name=car_assembly, configuration=Debug, clean_build=true}
+timestamp=[2025-05-22 11:45:08], mode=BUILD, duration=0:00:00.170, duration_ms=170, data={name=car_assembly_system, configuration=Debug, clean_build=true}
+timestamp=[2025-05-22 11:45:14], mode=PLATFORM_GENERATION, duration=0:00:02.618, duration_ms=2618, data={name=FinalCar}
+timestamp=[2025-05-22 11:45:22], mode=PLATFORM_GENERATION, duration=0:00:06.948, duration_ms=6948, data={name=FinalCar}
+timestamp=[2025-05-22 11:48:50], mode=PLATFORM_GENERATION, duration=0:00:06.957, duration_ms=6957, data={name=FinalCar}
+timestamp=[2025-05-22 11:52:02], mode=PLATFORM_GENERATION, duration=0:00:07.446, duration_ms=7446, data={name=FinalCar}
+timestamp=[2025-05-22 11:56:28], mode=PLATFORM_GENERATION, duration=0:00:07.496, duration_ms=7496, data={name=FinalCar}
+timestamp=[2025-05-22 11:58:48], mode=PLATFORM_GENERATION, duration=0:00:19.312, duration_ms=19312, data={name=FinalCar}
+timestamp=[2025-05-23 15:37:26], mode=WORKBENCH_START, duration=0:00:11.689, duration_ms=11689, data={}
+timestamp=[2025-05-23 15:37:26], mode=WORKBENCH_UI_INIT, duration=0:00:00.545, duration_ms=545, data={editors_count=11, platform_editors_count=5, projects_count=4, platform_projects_count=1, active_platform_editor=true, projects=FinalCar,RemoteSystemsTempFiles,car_assembly,car_assembly_system}
+timestamp=[2025-05-23 15:37:27], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.145, duration_ms=145, data={}
+timestamp=[2025-05-23 16:28:13], mode=BUILD, duration=0:00:01.795, duration_ms=1795, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-23 16:28:48], mode=BUILD, duration=0:00:00.471, duration_ms=471, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-23 16:29:07], mode=PLATFORM_GENERATION, duration=0:00:11.984, duration_ms=11984, data={name=FinalCar}
+timestamp=[2025-05-23 16:29:07], mode=BUILD, duration=0:00:00.169, duration_ms=169, data={name=car_assembly, configuration=Debug, clean_build=true}
+timestamp=[2025-05-23 16:29:08], mode=BUILD, duration=0:00:00.167, duration_ms=167, data={name=car_assembly_system, configuration=Debug, clean_build=true}
+timestamp=[2025-05-23 16:29:31], mode=PLATFORM_GENERATION, duration=0:00:22.964, duration_ms=22964, data={name=FinalCar}
+timestamp=[2025-05-23 16:29:31], mode=BUILD, duration=0:00:00.529, duration_ms=529, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-23 16:29:46], mode=PLATFORM_GENERATION, duration=0:00:06.965, duration_ms=6965, data={name=FinalCar}
+timestamp=[2025-05-23 16:29:46], mode=BUILD, duration=0:00:00.164, duration_ms=164, data={name=car_assembly, configuration=Debug, clean_build=true}
+timestamp=[2025-05-23 16:29:46], mode=BUILD, duration=0:00:00.172, duration_ms=172, data={name=car_assembly_system, configuration=Debug, clean_build=true}
+timestamp=[2025-05-23 16:30:07], mode=PLATFORM_GENERATION, duration=0:00:20.664, duration_ms=20664, data={name=FinalCar}
+timestamp=[2025-05-23 16:30:07], mode=BUILD, duration=0:00:00.569, duration_ms=569, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-23 16:39:05], mode=BUILD, duration=0:00:00.522, duration_ms=522, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-23 16:39:10], mode=BUILD, duration=0:00:00.473, duration_ms=473, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-23 16:40:31], mode=BUILD, duration=0:00:00.529, duration_ms=529, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-23 16:41:48], mode=BUILD, duration=0:00:00.523, duration_ms=523, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-23 16:53:11], mode=BUILD, duration=0:00:00.518, duration_ms=518, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-23 16:54:02], mode=BUILD, duration=0:00:00.469, duration_ms=469, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-23 16:54:17], mode=BUILD, duration=0:00:00.476, duration_ms=476, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-23 16:58:07], mode=BUILD, duration=0:00:00.472, duration_ms=472, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-23 17:06:20], mode=BUILD, duration=0:00:00.471, duration_ms=471, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-23 17:06:57], mode=BUILD, duration=0:00:01.021, duration_ms=1021, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-23 17:07:39], mode=BUILD, duration=0:00:01.073, duration_ms=1073, data={name=car_assembly, configuration=Debug, clean_build=false}
+timestamp=[2025-05-23 17:13:55], mode=BUILD, duration=0:00:00.975, duration_ms=975, data={name=car_assembly, configuration=Debug, clean_build=false}

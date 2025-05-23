@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="car_assembly" location="C:/vivado_pxlsoc/eval_soc_car/car_assembly" platform="C:/vivado_pxlsoc/eval_soc_car/FinalCar/export/FinalCar/FinalCar.xpfm" platformUID="xilinx:pynq-z2::0.0(custom)" systemProject="car_assembly_system" sysConfig="FinalCar" runtime="cpp" cpu="standalone_ps7_cortexa9_0" cpuInstance="ps7_cortexa9_0" os="standalone" mssSignature="19aa956b015e0cda286a07c09a0f21dd">
+  <configuration name="Debug" id="xilinx.gnu.armv7.exe.debug.36982937" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.armv7.exe.release.844718654" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="hello_world"/>
+</sdkproject:SdkProject>

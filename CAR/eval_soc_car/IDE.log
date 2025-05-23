@@ -1,0 +1,127 @@
+10:55:34 DEBUG : Logs will be stored at 'C:/vivado_pxlsoc/eval_soc_car/IDE.log'.
+11:06:54 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\vivado_pxlsoc\eval_soc_car\temp_xsdb_launch_script.tcl
+11:06:54 INFO  : Platform repository initialization has completed.
+11:06:54 INFO  : Registering command handlers for Vitis TCF services
+11:06:54 ERROR : (XSDB Server)'\gnu\microblaze\lin\bin\' is not recognized as an internal or external command,
+operable program or batch file.
+
+11:06:54 ERROR : (XSDB Server)'\gnu\microblaze\nt\bin\' is not recognized as an internal or external command,
+operable program or batch file.
+
+11:06:54 ERROR : (XSDB Server)'\gnuwin\bin\' is not recognized as an internal or external command,
+operable program or batch file.
+
+11:06:57 INFO  : XSCT server has started successfully.
+11:06:57 INFO  : plnx-install-location is set to ''
+11:06:57 INFO  : Successfully done setting XSCT server connection channel  
+11:06:57 INFO  : Successfully done setting workspace for the tool. 
+11:06:57 INFO  : Successfully done query RDI_DATADIR 
+11:14:12 INFO  : Result from executing command 'getProjects': FinalCar
+11:14:12 INFO  : Result from executing command 'getPlatforms': 
+11:14:12 WARN  : An unexpected exception occurred in the module 'platform project logging'
+11:14:13 INFO  : Platform 'FinalCar' is added to custom repositories.
+11:14:24 INFO  : Platform 'FinalCar' is added to custom repositories.
+11:23:02 INFO  : No changes in MSS file content so sources will not be generated.
+11:42:54 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+11:42:54 INFO  : Result from executing command 'getProjects': FinalCar;RemoteSystemsTempFiles;car_assembly;car_assembly_system
+11:42:54 WARN  : Failed to closehw "C:/vivado_pxlsoc/eval_soc_car/FinalCar/export/FinalCar/hw/FinalCar.xsa"
+Reason: C:/vivado_pxlsoc/eval_soc_car/FinalCar/export/FinalCar/hw/FinalCar.xsa is not available in the current workspace
+use 'getprojects' command to see list of available projects in current workspace
+11:42:54 INFO  : Result from executing command 'getProjects': FinalCar;RemoteSystemsTempFiles;car_assembly;car_assembly_system
+11:42:54 ERROR : Failed to openhw "C:/vivado_pxlsoc/eval_soc_car/FinalCar/export/FinalCar/hw/FinalCar.xsa"
+Reason: C:/vivado_pxlsoc/eval_soc_car/FinalCar/export/FinalCar/hw/FinalCar.xsa is not available in the current workspace
+use 'getprojects' command to see list of available projects in current workspace
+11:42:54 ERROR : Failed to update application flags from BSP for 'car_assembly'. Reason: null
+java.lang.NullPointerException: null
+	at com.xilinx.sdx.sw.internal.SDxSwPlatform.<init>(SDxSwPlatform.java:305) ~[com.xilinx.sdx.sw_1.0.0.202404291623.jar:?]
+	at com.xilinx.sdx.sw.internal.SDxSwPlatform.create(SDxSwPlatform.java:214) ~[com.xilinx.sdx.sw_1.0.0.202404291623.jar:?]
+	at com.xilinx.sdx.sdk.core.util.SdkPlatformHelper.getSwPlatform(SdkPlatformHelper.java:64) ~[com.xilinx.sdx.sdk.core_1.0.0.202404291623.jar:?]
+	at com.xilinx.sdx.sdk.core.build.SdkMakefileGenerationListener.getSwPlatform(SdkMakefileGenerationListener.java:160) ~[com.xilinx.sdx.sdk.core_1.0.0.202404291623.jar:?]
+	at com.xilinx.sdx.sdk.core.build.SdkMakefileGenerationListener.syncAppFlags(SdkMakefileGenerationListener.java:78) [com.xilinx.sdx.sdk.core_1.0.0.202404291623.jar:?]
+	at com.xilinx.sdx.sdk.core.build.SdkMakefileGenerationListener.preMakefileGeneration(SdkMakefileGenerationListener.java:48) [com.xilinx.sdx.sdk.core_1.0.0.202404291623.jar:?]
+	at com.xilinx.sdk.managedbuilder.XilinxGnuMakefileGenerator.notifyPreMakefileGenerationListeners(XilinxGnuMakefileGenerator.java:91) [com.xilinx.sdk.managedbuilder_1.0.0.202404291623.jar:?]
+	at com.xilinx.sdk.managedbuilder.XilinxGnuMakefileGenerator.regenerateMakefiles(XilinxGnuMakefileGenerator.java:75) [com.xilinx.sdk.managedbuilder_1.0.0.202404291623.jar:?]
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.performMakefileGeneration(CommonBuilder.java:1006) [org.eclipse.cdt.managedbuilder.core_8.6.0.201802261533.jar:?]
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.performPrebuildGeneration(CommonBuilder.java:873) [org.eclipse.cdt.managedbuilder.core_8.6.0.201802261533.jar:?]
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:748) [org.eclipse.cdt.managedbuilder.core_8.6.0.201802261533.jar:?]
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:513) [org.eclipse.cdt.managedbuilder.core_8.6.0.201802261533.jar:?]
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:459) [org.eclipse.cdt.managedbuilder.core_8.6.0.201802261533.jar:?]
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:832) [org.eclipse.core.resources_3.13.700.v20200209-1624.jar:?]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45) [org.eclipse.equinox.common_3.11.0.v20200206-0817.jar:?]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:220) [org.eclipse.core.resources_3.13.700.v20200209-1624.jar:?]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:263) [org.eclipse.core.resources_3.13.700.v20200209-1624.jar:?]
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:316) [org.eclipse.core.resources_3.13.700.v20200209-1624.jar:?]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45) [org.eclipse.equinox.common_3.11.0.v20200206-0817.jar:?]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:319) [org.eclipse.core.resources_3.13.700.v20200209-1624.jar:?]
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:371) [org.eclipse.core.resources_3.13.700.v20200209-1624.jar:?]
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:392) [org.eclipse.core.resources_3.13.700.v20200209-1624.jar:?]
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:515) [org.eclipse.core.resources_3.13.700.v20200209-1624.jar:?]
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:412) [org.eclipse.core.resources_3.13.700.v20200209-1624.jar:?]
+	at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:291) [org.eclipse.ui.ide_3.17.0.v20200217-1511.jar:?]
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42) [org.eclipse.core.resources_3.13.700.v20200209-1624.jar:?]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) [org.eclipse.core.jobs_3.10.700.v20200106-1020.jar:?]
+11:42:55 ERROR : Failed to compute checksum of hardware specification file used by project 'car_assembly'
+11:42:55 INFO  : Result from executing command 'getProjects': FinalCar;RemoteSystemsTempFiles;car_assembly;car_assembly_system
+11:42:55 ERROR : Failed to openhw "C:/vivado_pxlsoc/eval_soc_car/FinalCar/export/FinalCar/hw/FinalCar.xsa"
+Reason: C:/vivado_pxlsoc/eval_soc_car/FinalCar/export/FinalCar/hw/FinalCar.xsa is not available in the current workspace
+use 'getprojects' command to see list of available projects in current workspace
+11:42:55 INFO  : Result from executing command 'getProjects': FinalCar;RemoteSystemsTempFiles;car_assembly;car_assembly_system
+11:42:55 ERROR : Failed to openhw "C:/vivado_pxlsoc/eval_soc_car/FinalCar/export/FinalCar/hw/FinalCar.xsa"
+Reason: C:/vivado_pxlsoc/eval_soc_car/FinalCar/export/FinalCar/hw/FinalCar.xsa is not available in the current workspace
+use 'getprojects' command to see list of available projects in current workspace
+11:42:55 INFO  : Result from executing command 'getProjects': FinalCar;RemoteSystemsTempFiles;car_assembly;car_assembly_system
+11:42:55 ERROR : Failed to openhw "C:/vivado_pxlsoc/eval_soc_car/FinalCar/export/FinalCar/hw/FinalCar.xsa"
+Reason: C:/vivado_pxlsoc/eval_soc_car/FinalCar/export/FinalCar/hw/FinalCar.xsa is not available in the current workspace
+use 'getprojects' command to see list of available projects in current workspace
+11:44:10 INFO  : Result from executing command 'removePlatformRepo': 
+11:44:14 ERROR : Error from executing command 'removePlatformRepo': ERROR: No valid directory exists at given path.
+11:44:17 ERROR : Error from executing command 'removePlatformRepo': ERROR: No valid directory exists at given path.
+11:44:39 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+11:44:39 ERROR : Failed to get platform details for the project 'car_assembly'. Cannot sync application flags.
+11:44:58 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+11:44:58 ERROR : Failed to get platform details for the project 'car_assembly'. Cannot sync application flags.
+11:45:04 INFO  : Result from executing command 'removePlatformRepo': 
+11:45:08 ERROR : Error from executing command 'removePlatformRepo': ERROR: No valid directory exists at given path.
+11:45:14 ERROR : Error from executing command 'removePlatformRepo': ERROR: No valid directory exists at given path.
+11:58:47 INFO  : Result from executing command 'getProjects': FinalCar
+11:58:47 INFO  : Result from executing command 'getPlatforms': 
+15:37:20 DEBUG : Logs will be stored at 'C:/vivado_pxlsoc/eval_soc_car/IDE.log'.
+15:37:20 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\vivado_pxlsoc\eval_soc_car\temp_xsdb_launch_script.tcl
+15:37:21 ERROR : (XSDB Server)'\gnu\microblaze\lin\bin\' is not recognized as an internal or external command,
+operable program or batch file.
+
+15:37:21 ERROR : (XSDB Server)'\gnu\microblaze\nt\bin\' is not recognized as an internal or external command,
+operable program or batch file.
+
+15:37:21 ERROR : (XSDB Server)'\gnuwin\bin\' is not recognized as an internal or external command,
+operable program or batch file.
+
+15:37:26 INFO  : XSCT server has started successfully.
+15:37:26 INFO  : Successfully done setting XSCT server connection channel  
+15:37:26 INFO  : plnx-install-location is set to ''
+15:37:26 INFO  : Successfully done setting workspace for the tool. 
+15:37:27 INFO  : Registering command handlers for Vitis TCF services
+15:37:27 INFO  : Platform repository initialization has completed.
+15:37:33 INFO  : Successfully done query RDI_DATADIR 
+16:28:08 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+16:28:48 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+16:29:01 INFO  : Result from executing command 'removePlatformRepo': 
+16:29:30 INFO  : Result from executing command 'getProjects': FinalCar
+16:29:30 INFO  : Result from executing command 'getPlatforms': 
+16:29:31 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+16:29:41 INFO  : Result from executing command 'removePlatformRepo': 
+16:30:07 INFO  : Result from executing command 'getProjects': FinalCar
+16:30:07 INFO  : Result from executing command 'getPlatforms': 
+16:30:07 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+16:39:04 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+16:39:10 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+16:40:30 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+16:41:48 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+16:53:10 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+16:54:01 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+16:54:16 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+16:58:07 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+17:06:19 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+17:06:56 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+17:07:38 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
+17:13:54 INFO  : Checking for BSP changes to sync application flags for project 'car_assembly'...
